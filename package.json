@@ -28,7 +28,9 @@
     "test:watch": "wtr --watch",
     "test:prod": "MODE=prod wtr",
     "test:prod:watch": "MODE=prod wtr --watch",
-    "checksize": "rollup -c ; cat my-element.bundled.js | gzip -9 | wc -c ; rm my-element.bundled.js"
+    "checksize": "rollup -c ; cat my-element.bundled.js | gzip -9 | wc -c ; rm my-element.bundled.js",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "keywords": [
     "web-components",
@@ -39,17 +41,24 @@
   "author": "Google LLC",
   "license": "BSD-3-Clause",
   "dependencies": {
-    "lit": "^2.0.0"
+    "immer": "^9.0.6",
+    "lit": "^2.0.0",
+    "page": "^1.11.6"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
+    "@babel/core": "^7.15.5",
     "@custom-elements-manifest/analyzer": "^0.5.3",
     "@esm-bundle/chai": "^4.1.5",
     "@open-wc/testing": "^3.0.0-next.1",
     "@open-wc/testing-karma": "^4.0.9",
     "@rollup/plugin-node-resolve": "^13.0.4",
     "@rollup/plugin-replace": "^3.0.0",
+    "@storybook/addon-actions": "^6.3.8",
+    "@storybook/addon-essentials": "^6.3.8",
+    "@storybook/addon-links": "^6.3.8",
+    "@storybook/web-components": "^6.3.8",
     "@types/mocha": "^9.0.0",
     "@web/dev-server": "^0.1.22",
     "@web/dev-server-legacy": "^0.1.4",
@@ -60,6 +69,8 @@
     "@webcomponents/webcomponentsjs": "^2.6.0",
     "babel-eslint": "^10.1.0",
     "deepmerge": "^4.2.2",
+    "dotenv": "^10.0.0",
+    "dotenv-webpack": "^7.0.3",
     "eslint": "^7.32.0",
     "lit-analyzer": "^1.1.10",
     "mocha": "^9.1.1",
