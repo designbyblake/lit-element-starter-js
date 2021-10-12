@@ -5,58 +5,22 @@ import '../components/discogs-listing';
 import '../components/collection-header';
 import '../components/collection-sort';
 import '../components/discogs-list';
+import '../components/collection-filters';
 
-const api = {
-  token: 'FTZuqJVmCyDzXGVakILvGhZhnRTAporVIAlnNHqL',
-  username: 'designbyblake',
-  noAuth: '&key=XrkJNIPwCiPgddPIWUbM&secret=XDLuYdixEQmQqBFGeZKdeeGDgbxFWtJT',
-  perPage: 50,
-  sort: 'artist',
-  order: 'asc',
-  key: 'XrkJNIPwCiPgddPIWUbM',
-  secret: 'XDLuYdixEQmQqBFGeZKdeeGDgbxFWtJT',
-};
-
+import {api} from '../utils/api';
+import {initialState} from '../utils/state';
+import {dispatch} from '../reducers/collectionReducer';
 export class DiscogsCollection extends LitElement {
-  static properties = {
-    discogsUser: {type: String},
-    collection: {type: Object},
-    fetchURL: {type: String},
-    state: {type: Object},
-  };
+  static get properties() {
+    return {
+      discogsUser: {type: String},
+      state: {type: Object},
+    };
+  }
 
   constructor() {
     super();
-
-    this.state = {
-      activeFilter: false,
-      artists: [],
-      currentAlbum: {},
-      currentAlbumShow: false,
-      collection: [],
-      collectionDisplay: [],
-      collectionIsLoading: true,
-      collectionTotal: 0,
-      display: 'grid',
-      direction: 'descending',
-      fetchURL: '',
-      filtered: null,
-      filteredArtists: [],
-      filteredGenres: [],
-      filteredStyles: [],
-      filteredLabel: [],
-      error: null,
-      genres: [],
-      labels: [],
-      styles: [],
-      textFilter: '',
-      loaded: false,
-      updateCollectionDisplay: true,
-      scrollPosition: 0,
-      showFilters: false,
-      stillLoading: true,
-      userName: '',
-    };
+    this.state = initialState;
   }
 
   connectedCallback() {
@@ -68,10 +32,23 @@ export class DiscogsCollection extends LitElement {
         `https://api.discogs.com/users/${this.discogsUser}/collection/folders/0/releases?sort=${api.sort}&sort_order=${api.order}&per_page=${api.perPage}&token=${api.token}`
       ),
     };
-
     this._getDiscogsData();
   }
-
+  _getDiscogsData() {
+    fetch(this.state.fetchURL)
+      .then((res) => res.json())
+      .then((data) => {
+        this.state = dispatch(this.state, {type: 'LOADED', data});
+        if (data.pagination.page !== data.pagination.pages) {
+          this._getDiscogsData();
+        } else {
+          this.state = dispatch(this.state, {type: 'SET_FILTERS'});
+        }
+      })
+      .catch((e) => {
+        console.warn(e.message);
+      });
+  }
   static get styles() {
     return [
       globalStyles,
@@ -103,15 +80,16 @@ export class DiscogsCollection extends LitElement {
       <background-image></background-image>
       <div class="container">
         <collection-header
-          collectionDisplayLength=${this.state.collectionDisplay.length}
-          collectionLength=${this.state.collection.length}
-          collectionTotal=${this.state.collectionTotal}
-          stillLoading=${this.state.stillLoading}
-          userName=${this.discogsUser}
+          .collectionDisplayLength=${this.state.collectionDisplay.length}
+          .collectionLength=${this.state.collection.length}
+          .collectionTotal=${this.state.collectionTotal}
+          .stillLoading=${this.state.stillLoading}
+          .userName=${this.discogsUser}
         ></collection-header>
         <collection-sort
           .display=${this.state.display}
-          @setDisplay=${this._updateDisplay}
+          .stillLoading=${this.state.stillLoading}
+          @dispatch=${this._dispatch}
         ></collection-sort>
         <div class="collection">
           ${this.state.display === 'grid'
@@ -124,99 +102,47 @@ export class DiscogsCollection extends LitElement {
               })
             : html`<discogs-list
                 .collectionDisplay=${this.state.collectionDisplay}
-                display=${this.state.display}
+                .display=${this.state.display}
               ></discogs-list>`}
         </div>
       </div>
+      <collection-filters
+        .showFilters=${this.state.showFilters}
+        .collectionDisplayLength=${this.state.collectionDisplay.length}
+        .collectionTotal=${this.state.collectionTotal}
+        .artists=${this.state.artists}
+        .filteredArtists=${this.state.filteredArtists}
+        .genres=${this.state.genres}
+        .filteredGenres=${this.state.filteredGenres}
+        .styles=${this.state.styles}
+        .filteredStyles=${this.state.filteredStyles}
+        .labels=${this.state.labels}
+        .filteredLabels=${this.state.filteredLabels}
+        @filterCheckboxes=${this._filterCheckboxes}
+        @dispatch=${this._dispatch}
+      ></collection-filters>
     `;
   }
 
-  _getDiscogsData() {
-    if (this.state.fetchURL !== '') {
-      fetch(this.state.fetchURL)
-        .then((res) => res.json())
-        .then((data) => {
-          this._loadData(this.state, data);
-        })
-        .catch((e) => {
-          console.warn(e.message);
-        });
-    }
-  }
-
-  _loadData(state, data) {
-    const collection = [];
-    const collectionDisplay = [];
-
-    const users = state.fetchURL.split('users/');
-    const user = users[1].split('/');
-
-    if (user[0] !== state.userName) {
-      return {
-        ...state,
-      };
-    }
-    if (data.message) {
-      return {
-        ...state,
-        error: data.message,
-        loaded: true,
-      };
-    }
-    data.releases.forEach((releaseSet) => {
-      collection.push(releaseSet);
-      collectionDisplay.push(releaseSet);
-    });
-
-    let newState = {
-      ...state,
-      loaded: true,
-      collection: [...state.collection, ...collection],
-      collectionTotal: data.pagination.items,
-    };
-
-    if (state.updateCollectionDisplay === true) {
-      newState = {
-        ...newState,
-        loaded: true,
-        collectionDisplay: [...state.collectionDisplay, ...collectionDisplay],
-      };
-    }
-
-    if (data.pagination.urls.next) {
-      newState = {
-        ...newState,
-        loaded: true,
-        fetchURL: data.pagination.urls.next,
-        collectionIsLoading: true,
-        collectionTotal: data.pagination.items,
-        stillLoading: true,
-      };
+  _filterCheckboxes(e) {
+    const state = {...this.state};
+    let filter = e.detail.filter;
+    let currentlyChecked = [...state[filter.keyname]];
+    if (filter.checked === true) {
+      currentlyChecked.push(filter.name);
     } else {
-      newState = {
-        ...newState,
-        loaded: true,
-        collectionIsLoading: false,
-        collectionTotal: data.pagination.items,
-        stillLoading: false,
-      };
+      currentlyChecked = currentlyChecked.filter(
+        (item) => item !== filter.name
+      );
     }
+    let newState = {...state, [filter.keyname]: currentlyChecked};
 
-    this.state = {...newState};
-    if (data.pagination.page !== data.pagination.pages) {
-      this._getDiscogsData();
-    } else {
-      console.log(this.state);
-    }
+    newState = dispatch(newState, {type: 'FILTER_COLLECTION'});
+    this.state = dispatch(newState, {type: 'SET_FILTERS'});
   }
-
-  _updateDisplay(e) {
-    console.log('update Display');
-
-    const display = e.detail.displayType;
-    console.log(display);
-    let newState = {...this.state, display: display};
-    this.state = newState;
+  _dispatch(e) {
+    // console.log(e);
+    this.state = dispatch(this.state, e.detail);
   }
 }
 window.customElements.define('discogs-collection', DiscogsCollection);

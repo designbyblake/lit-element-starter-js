@@ -22,10 +22,6 @@ export class AlbumCover extends LitElement {
     };
   }
 
-  constructor() {
-    super();
-  }
-
   connectedCallback() {
     super.connectedCallback();
     if (this.display === 'list') {

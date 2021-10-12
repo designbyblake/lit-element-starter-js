@@ -1,4 +1,4 @@
-import {LitElement, html, css} from 'lit-element';
+import {LitElement, html} from 'lit-element';
 import {globalStyles} from './global-styles';
 class CollectionHeader extends LitElement {
   static properties = {
@@ -14,6 +14,7 @@ class CollectionHeader extends LitElement {
   }
   render() {
     let text = '';
+    console.log(`header - ${this.collectionDisplayLength}`);
     if (this.stillLoading === true) {
       text = `${this.collectionLength} out of ${this.collectionTotal} loaded.`;
     } else if (this.collectionDisplayLength === this.collectionTotal) {

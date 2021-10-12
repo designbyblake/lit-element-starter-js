@@ -1,11 +1,19 @@
 import {LitElement, html, css} from 'lit-element';
 import {globalStyles} from './global-styles';
-import {grid, list} from './svgs';
-
+import {grid, list, filter} from './svgs';
+import {callDispatch} from '../utils/state';
 class CollectionSort extends LitElement {
   static properties = {
+    /**
+     * The display type, grid or list.
+     * @type {string}
+     */
     display: {type: String},
-    updateDisplay: {type: Function},
+    /**
+     * The is the collection loading.
+     * @type {boolean}
+     */
+    stillLoading: {type: Boolean},
   };
   static get styles() {
     return [
@@ -79,25 +87,45 @@ class CollectionSort extends LitElement {
         </button>
         <button
           @click="${this._dispatchDisplay}"
+          class="btn-grid-list hide-small ${isList}"
           data-display="list"
           type="button"
-          class="btn-grid-list hide-small ${isList}"
         >
           <span aria-hidden="true">${list}</span>
           <span class="a11y">Display Display collection as a list</span>
         </button>
+
+        <div class="wrap-small">
+          <button
+            .disabled=${this.stillLoading}
+            @click="${this._dispatchFilter}"
+            class="btn btn--outline btn--shadow"
+            type="button"
+          >
+            <span class="btn__icon">${filter} </span>
+            <span class="btn__text">Filters</span>
+          </button>
+        </div>
       </div>
     `;
   }
 
   _dispatchDisplay(e) {
-    const displayType = e.target.dataset.display;
-    const options = {
-      detail: {displayType},
-      bubbles: true,
-      composed: true,
+    const display = e.target.dataset.display;
+    const action = {
+      data: {
+        display,
+      },
+      type: 'SET_DISPLAY',
     };
-    this.dispatchEvent(new CustomEvent('setDisplay', options));
+    callDispatch(this, action);
+  }
+  _dispatchFilter() {
+    const action = {
+      data: {showFilter: true},
+      type: 'TOGGLE_FILTERS',
+    };
+    callDispatch(this, action);
   }
 }
 window.customElements.define('collection-sort', CollectionSort);
