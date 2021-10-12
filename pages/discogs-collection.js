@@ -6,6 +6,7 @@ import '../components/collection-header';
 import '../components/collection-sort';
 import '../components/discogs-list';
 import '../components/collection-filters';
+import '../components/collection-active-filters';
 
 import {api} from '../utils/api';
 import {initialState} from '../utils/state';
@@ -91,6 +92,13 @@ export class DiscogsCollection extends LitElement {
           .stillLoading=${this.state.stillLoading}
           @dispatch=${this._dispatch}
         ></collection-sort>
+        <collection-active-filters
+          .filteredArtists=${this.state.filteredArtists}
+          .filteredGenres=${this.state.filteredGenres}
+          .filteredLabels=${this.state.filteredLabels}
+          .filteredStyles=${this.state.filteredStyles}
+          @filterCheckboxes=${this._filterCheckboxes}
+        ></collection-active-filters>
         <div class="collection">
           ${this.state.display === 'grid'
             ? this.state.collectionDisplay.map((item) => {
@@ -107,27 +115,29 @@ export class DiscogsCollection extends LitElement {
         </div>
       </div>
       <collection-filters
-        .showFilters=${this.state.showFilters}
+        .artists=${this.state.artists}
         .collectionDisplayLength=${this.state.collectionDisplay.length}
         .collectionTotal=${this.state.collectionTotal}
-        .artists=${this.state.artists}
         .filteredArtists=${this.state.filteredArtists}
-        .genres=${this.state.genres}
         .filteredGenres=${this.state.filteredGenres}
-        .styles=${this.state.styles}
-        .filteredStyles=${this.state.filteredStyles}
-        .labels=${this.state.labels}
         .filteredLabels=${this.state.filteredLabels}
-        @filterCheckboxes=${this._filterCheckboxes}
+        .filteredStyles=${this.state.filteredStyles}
+        .genres=${this.state.genres}
+        .labels=${this.state.labels}
+        .showFilters=${this.state.showFilters}
+        .styles=${this.state.styles}
         @dispatch=${this._dispatch}
+        @filterCheckboxes=${this._filterCheckboxes}
       ></collection-filters>
     `;
   }
 
   _filterCheckboxes(e) {
     const state = {...this.state};
+
     let filter = e.detail.filter;
     let currentlyChecked = [...state[filter.keyname]];
+
     if (filter.checked === true) {
       currentlyChecked.push(filter.name);
     } else {
@@ -135,9 +145,13 @@ export class DiscogsCollection extends LitElement {
         (item) => item !== filter.name
       );
     }
-    let newState = {...state, [filter.keyname]: currentlyChecked};
-
-    newState = dispatch(newState, {type: 'FILTER_COLLECTION'});
+    let newState = {
+      ...state,
+      [filter.keyname]: currentlyChecked,
+      filtered: filter.filterBy,
+      activeFilter: true,
+    };
+    newState = dispatch(newState, {type: 'FILTER_COLLECTION', filter});
     this.state = dispatch(newState, {type: 'SET_FILTERS'});
   }
   _dispatch(e) {

@@ -19,9 +19,6 @@ class DiscogsListing extends LitElement {
           box-shadow: var(--box-shadow);
           display: flex;
           height: 100%;
-          margin-left: auto;
-          margin-right: auto;
-          overflow: hidden;
           overflow: hidden;
           position: relative;
           transition: all 0.35s ease;

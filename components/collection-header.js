@@ -14,9 +14,10 @@ class CollectionHeader extends LitElement {
   }
   render() {
     let text = '';
-    console.log(`header - ${this.collectionDisplayLength}`);
     if (this.stillLoading === true) {
-      text = `${this.collectionLength} out of ${this.collectionTotal} loaded.`;
+      text = `${this.collectionLength} out of ${
+        this.collectionTotal ? this.collectionTotal : '???'
+      } loaded.`;
     } else if (this.collectionDisplayLength === this.collectionTotal) {
       text = `Collection size, ${this.collectionTotal}`;
     } else {

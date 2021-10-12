@@ -1,50 +1,50 @@
 /* eslint-disable no-undef */
-export function setFilters(state, filterBy) {
-  const {collectionDisplay} = state;
+export function setFilters(state) {
+  const {collectionDisplay, activeFilter, filtered, textFilter} = state;
   let artistSet = new Set();
   let genereSet = new Set();
   let styleSet = new Set();
   let labelSet = new Set();
-
   if (
-    (state.activeFilter !== true || state.filtered === 'artists') &&
-    state.textFilter.length === 0
+    (activeFilter !== true || filtered === 'artists') &&
+    textFilter.length === 0
   ) {
     artistSet = new Set([...state.artists]);
   } else if (
-    (state.activeFilter !== true || state.filtered === 'genres') &&
-    state.textFilter.length === 0
+    (activeFilter !== true || filtered === 'genres') &&
+    textFilter.length === 0
   ) {
     genereSet = new Set([...state.genres]);
   } else if (
-    (state.activeFilter !== true || state.filtered === 'styles') &&
-    state.textFilter.length === 0
+    (activeFilter !== true || filtered === 'styles') &&
+    textFilter.length === 0
   ) {
     styleSet = new Set([...state.styles]);
   } else if (
-    (state.activeFilter !== true || state.filtered === 'record-label') &&
-    state.textFilter.length === 0
+    (activeFilter !== true || filtered === 'record-label') &&
+    textFilter.length === 0
   ) {
     labelSet = new Set([...state.labels]);
   }
 
   collectionDisplay.forEach((record) => {
-    if (filterBy !== 'artist') {
+    if (filtered !== 'artist') {
       artistSet.add(record.basic_information.artists[0].name);
     }
 
-    if (filterBy !== 'genres') {
+    if (filtered !== 'genres') {
       record.basic_information.genres.forEach((gen) => {
         genereSet.add(gen);
       });
     }
 
-    if (filterBy !== 'styles') {
+    if (filtered !== 'styles') {
       record.basic_information.styles.forEach((style) => {
         styleSet.add(style);
       });
     }
-    if (filterBy !== 'record-label') {
+
+    if (filtered !== 'record-label') {
       record.basic_information.labels.forEach((label) => {
         labelSet.add(label.name);
       });
@@ -63,7 +63,6 @@ export function setFilters(state, filterBy) {
 }
 
 export function filterCollection(state) {
-  console.log(state);
   const {
     collection,
     filteredArtists,

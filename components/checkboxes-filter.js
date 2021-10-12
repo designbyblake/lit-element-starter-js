@@ -17,9 +17,9 @@ class CheckboxesFilter extends LitElement {
       keyname: {type: String},
       /**
        * Currently filtered.
-       * @type {string}
+       * @type {array}
        */
-      currentFiltered: {type: String},
+      currentFiltered: {type: Array},
 
       /**
        * Name used for filtering function.
@@ -61,6 +61,7 @@ class CheckboxesFilter extends LitElement {
         <label>
           <input
             type="checkbox"
+            .checked=${this.currentFiltered.includes(this.filterName)}
             name=${this.filterName}
             @click=${this._filterCheckbox}
           />

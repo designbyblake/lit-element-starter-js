@@ -203,8 +203,6 @@ class CollectionFilters extends LitElement {
   }
 
   render() {
-    let collectionDisplayLength = this.collectionDisplayLength;
-    console.log(collectionDisplayLength);
     return html`
       <div class="bg ${this.showFilters && `showing`}"></div>
       <div
@@ -222,8 +220,8 @@ class CollectionFilters extends LitElement {
             <legend>Filter the collection</legend>
             <div class="buttons">
               <p>
-                Showing ${collectionDisplayLength} of ${this.collectionTotal}
-                items
+                Showing ${this.collectionDisplayLength} of
+                ${this.collectionTotal} items
               </p>
               <filtered-checkboxes
                 legend="Artists"
