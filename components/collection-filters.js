@@ -2,6 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {globalStyles} from './global-styles';
 import {close} from './svgs';
 import './filtered-checkboxes';
+import './text-filter';
 import {callDispatch} from '../utils/state';
 class CollectionFilters extends LitElement {
   static get properties() {
@@ -67,6 +68,18 @@ class CollectionFilters extends LitElement {
        * @type {object}
        */
       filteredLabels: {type: Object},
+
+      /**
+       * The is the collection loading.
+       * @type {boolean}
+       */
+      stillLoading: {type: Boolean},
+
+      /**
+       * The is the collection loading.
+       * @type {string}
+       */
+      textFilter: {type: String},
     };
   }
 
@@ -223,6 +236,10 @@ class CollectionFilters extends LitElement {
                 Showing ${this.collectionDisplayLength} of
                 ${this.collectionTotal} items
               </p>
+              <text-filter
+                .stillLoading=${this.stillLoading}
+                .textFilter=${this.textFilter}
+              ></text-filter>
               <filtered-checkboxes
                 legend="Artists"
                 filterBy="artists"

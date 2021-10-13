@@ -1,6 +1,6 @@
 import {LitElement, html, css} from 'lit-element';
 import {globalStyles} from './global-styles';
-import {grid, list, filter} from './svgs';
+import {grid, list, filter, sortDescending, sortAscending} from './svgs';
 import {callDispatch} from '../utils/state';
 class CollectionSort extends LitElement {
   static properties = {
@@ -9,6 +9,11 @@ class CollectionSort extends LitElement {
      * @type {string}
      */
     display: {type: String},
+    /**
+     * The direction for sorting.
+     * @type {string}
+     */
+    direction: {type: String},
     /**
      * The is the collection loading.
      * @type {boolean}
@@ -28,7 +33,7 @@ class CollectionSort extends LitElement {
           margin-bottom: 30px;
         }
 
-        .btn-grid-list {
+        button {
           background-color: var(--button-bg);
           border-radius: 4px;
           border: 2px solid #fff;
@@ -41,15 +46,21 @@ class CollectionSort extends LitElement {
           width: 48px;
         }
 
-        .btn-grid-list:hover:not(.btn-grid-list--active) {
+        button:hover:not(.active) {
           background: var(--button-hover);
         }
 
-        .btn-grid-list--active {
+        button.active {
           background-color: var(--color-white);
         }
+        button.btn-wide {
+          width: auto;
+          padding-left: 5px;
+          padding-right: 10px;
+          font-size: 1.5rem;
+        }
 
-        .btn-grid-list svg {
+        button svg {
           fill: #fff;
           filter: drop-shadow(var(--box-shadow));
           height: 21px;
@@ -63,31 +74,62 @@ class CollectionSort extends LitElement {
           width: 24px;
         }
 
-        .btn-grid-list--active svg {
+        button.btn-wide svg {
+          position: relative;
+          left: auto;
+          top: auto;
+          transform: none;
+        }
+
+        button.active svg {
           fill: var(--button-hover);
           filter: none;
           stroke: var(--button-hover);
+        }
+
+        select {
+          background-color: var(--button-bg);
+          border-radius: 4px;
+          border: 2px solid #fff;
+          box-shadow: var(--box-shadow);
+          color: #fff;
+          cursor: pointer;
+          font-size: 1.325rem;
+          height: 48px;
+          margin-right: 10px;
+          min-width: 150px;
+          padding: 5px 25px 5px 10px;
+          position: relative;
+          text-align: left;
+          text-shadow: 3px 2px 8px black;
+          transition: all 0.25s ease;
+        }
+        select:hover,
+        select:focus {
+          background-color: var(--button-hover);
         }
       `,
     ];
   }
   render() {
-    const isGrid = this.display === 'grid' && 'btn-grid-list--active';
-    const isList = this.display === 'list' && 'btn-grid-list--active';
+    const isGrid = this.display === 'grid' && 'active';
+    const isList = this.display === 'list' && 'active';
+    const isAscending = this.direction === 'ascending' && 'active';
+    const isDescending = this.direction === 'descending' && 'active';
     return html`
       <div class="collection-sort">
         <button
-          @click="${this._dispatchDisplay}"
+          @click=${this._dispatchDisplay}
           data-display="grid"
           type="button"
-          class="btn-grid-list hide-small ${isGrid}"
+          class="hide-small ${isGrid}"
         >
           <span aria-hidden="true">${grid}</span>
           <span class="a11y">Display collection as a grid</span>
         </button>
         <button
-          @click="${this._dispatchDisplay}"
-          class="btn-grid-list hide-small ${isList}"
+          @click=${this._dispatchDisplay}
+          class="hide-small ${isList}"
           data-display="list"
           type="button"
         >
@@ -95,11 +137,37 @@ class CollectionSort extends LitElement {
           <span class="a11y">Display Display collection as a list</span>
         </button>
 
+        <select @change=${this._dispatchSort}>
+          <option value="Artist">Artist</option>
+          <option value="Album Name">Album Name</option>
+          <option value="Date Added">Date Added</option>
+        </select>
+
+        <button
+          @click=${this._dispatchDirection}
+          class="hide-small ${isDescending}"
+          data-direction="descending"
+          type="button"
+        >
+          <span aria-hidden="true">${sortDescending}</span>
+          <span class="a11y">Display collection in descending order</span>
+        </button>
+
+        <button
+          @click=${this._dispatchDirection}
+          class="hide-small ${isAscending}"
+          data-direction="ascending"
+          type="button"
+        >
+          <span aria-hidden="true">${sortAscending}</span>
+          <span class="a11y">Display collection in ascending order</span>
+        </button>
+
         <div class="wrap-small">
           <button
             .disabled=${this.stillLoading}
-            @click="${this._dispatchFilter}"
-            class="btn btn--outline btn--shadow"
+            @click=${this._dispatchFilter}
+            class="btn-wide btn--outline btn--shadow"
             type="button"
           >
             <span class="btn__icon">${filter} </span>
@@ -124,6 +192,24 @@ class CollectionSort extends LitElement {
     const action = {
       data: {showFilter: true},
       type: 'TOGGLE_FILTERS',
+    };
+    callDispatch(this, action);
+  }
+
+  _dispatchDirection(e) {
+    const direction = e.target.dataset.direction;
+
+    const action = {
+      data: {direction},
+      type: 'DIRECTION',
+    };
+    callDispatch(this, action);
+  }
+
+  _dispatchSort(e) {
+    const action = {
+      data: {sort: e.target.value},
+      type: 'SORT_ORDER',
     };
     callDispatch(this, action);
   }

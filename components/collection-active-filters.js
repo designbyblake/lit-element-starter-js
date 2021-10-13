@@ -1,7 +1,6 @@
-import {LitElement, html, css} from 'lit-element';
+import {LitElement, html} from 'lit-element';
 import './active-filter';
-import {globalStyles} from './global-styles';
-import {callDispatch} from '../utils/state';
+
 class CollectionActiveFilters extends LitElement {
   static get properties() {
     return {

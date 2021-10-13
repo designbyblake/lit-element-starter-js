@@ -1,7 +1,12 @@
 /* eslint-disable no-nested-ternary */
 import {api} from '../utils/api';
 import {loadData} from '../utils/data';
-import {setFilters, filterCollection} from '../utils/filters';
+import {
+  setFilters,
+  filterCollection,
+  doTheDirection,
+  doTheSortOrder,
+} from '../utils/filters';
 function returnFocus(setFocus) {
   if (setFocus !== null) {
     setFocus.current.focus();
@@ -15,8 +20,8 @@ export function dispatch(state, action) {
   switch (action.type) {
     case 'LOADED':
       return loadData(state, action.data);
-    case 'SORT':
-      return sortCollection(state);
+    // case 'SORT':
+    //   return sortCollection(state);
     case 'SET_FILTERS':
       return setFilters(state);
     case 'FILTER_COLLECTION':
@@ -75,10 +80,10 @@ export function dispatch(state, action) {
         currentAlbumShow: false,
       };
     case 'TEXT_FILTER':
-      action.filterCollection();
+      // action.filterCollection();
       return {
         ...state,
-        textFilter: action.value,
+        textFilter: action.data.text,
       };
     case 'UPDATE_USER':
       return {

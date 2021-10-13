@@ -151,54 +151,49 @@ export function filterCollection(state) {
 }
 
 export function sortFilters(a, b) {
-  return a.basic_information.artists[0].name.toLowerCase() >
-    b.basic_information.artists[0].name.toLowerCase()
-    ? 1
-    : a.basic_information.artists[0].name.toLowerCase() ===
-      b.basic_information.artists[0].name.toLowerCase()
-    ? a.basic_information.title.toLowerCase() >
-      b.basic_information.title.toLowerCase()
-      ? 1
-      : -1
-    : -1;
+  const nameA = a.basic_information.artists[0].name.toLowerCase();
+  const nameB = b.basic_information.artists[0].name.toLowerCase();
+  const titleA = a.basic_information.title.toLowerCase();
+  const titleB = b.basic_information.title.toLowerCase();
+  return nameA > nameB ? 1 : nameA === nameB ? (titleA > titleB ? 1 : -1) : -1;
 }
 
+Array.prototype.sortByName = function () {
+  return this.sort((a, b) =>
+    a.basic_information.title.toLowerCase() >
+    b.basic_information.title.toLowerCase()
+      ? 1
+      : -1
+  );
+};
+
+Array.prototype.sortByArtist = function () {
+  return this.sort((a, b) => sortFilters(a, b));
+};
+
+Array.prototype.sortByDate = function () {
+  return this.sort((a, b) => new Date(b.date_added) - new Date(a.date_added));
+};
+
 export function doTheSortOrder(state, action) {
+  console.log(action.data.sort);
   let theCollection = [...state.collection];
   let sortCollectionDisplay = [...state.collectionDisplay];
 
-  if (action.value === 'Artist') {
-    theCollection.sort((a, b) => sortFilters(a, b));
-    sortCollectionDisplay.sort((a, b) => sortFilters(a, b));
+  if (action.data.sort === 'Artist') {
+    theCollection.sortByArtist();
+    sortCollectionDisplay.sortByArtist();
+  } else if (action.data.sort === 'Album Name') {
+    theCollection.sortByName();
+    sortCollectionDisplay.sortByName();
+  } else if (action.data.sort === 'Date Added') {
+    theCollection.sortByDate();
+    sortCollectionDisplay.sortByDate();
   }
-
-  if (action.value === 'Album Name') {
-    theCollection.sort((a, b) =>
-      a.basic_information.title.toLowerCase() >
-      b.basic_information.title.toLowerCase()
-        ? 1
-        : -1
-    );
-    sortCollectionDisplay.sort((a, b) =>
-      a.basic_information.title.toLowerCase() >
-      b.basic_information.title.toLowerCase()
-        ? 1
-        : -1
-    );
-  }
-
-  if (action.value === 'Date Added') {
-    theCollection.sort(
-      (a, b) => new Date(b.date_added) - new Date(a.date_added)
-    );
-    sortCollectionDisplay.sort(
-      (a, b) => new Date(b.date_added) - new Date(a.date_added)
-    );
-  }
-
+  console.log(state.direction);
   if (state.direction === 'ascending') {
-    theCollection = sortCollection.reverse();
-    sortCollectionDisplay = sortCollectionDisplay.reverse();
+    theCollection.reverse();
+    sortCollectionDisplay.reverse();
   }
   return {
     ...state,
@@ -208,25 +203,20 @@ export function doTheSortOrder(state, action) {
 }
 
 export function doTheDirection(state, action) {
-  const currentDirection = state.direction;
-
-  if (currentDirection === action.direction) {
+  if (state.direction === action.data.direction) {
     return {
       ...state,
     };
   }
-  let sortCollection = [...state.collection];
-  let sortCollectionDisplay = [...state.collectionDisplay];
 
-  sortCollection = sortCollection.reverse();
-  sortCollectionDisplay = sortCollectionDisplay.reverse();
   return {
     ...state,
-    direction: action.direction,
-    collection: [...sortCollection],
-    collectionDisplay: [...sortCollectionDisplay],
+    direction: action.data.direction,
+    collection: [...state.collection].reverse(),
+    collectionDisplay: [...state.collectionDisplay].reverse(),
   };
 }
+
 export function sortCollection(state) {
   const collection = [...state.collection];
 

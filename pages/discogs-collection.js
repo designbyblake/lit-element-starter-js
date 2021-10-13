@@ -7,6 +7,7 @@ import '../components/collection-sort';
 import '../components/discogs-list';
 import '../components/collection-filters';
 import '../components/collection-active-filters';
+import '../components/collection-footer';
 
 import {api} from '../utils/api';
 import {initialState} from '../utils/state';
@@ -77,57 +78,87 @@ export class DiscogsCollection extends LitElement {
     ];
   }
   render() {
+    const {
+      artists,
+      collection,
+      collectionDisplay,
+      collectionTotal,
+      direction,
+      display,
+      filteredArtists,
+      filteredGenres,
+      filteredLabels,
+      filteredStyles,
+      genres,
+      labels,
+      showFilters,
+      stillLoading,
+      styles,
+      textFilter,
+    } = this.state;
     return html`
       <background-image></background-image>
       <div class="container">
         <collection-header
-          .collectionDisplayLength=${this.state.collectionDisplay.length}
-          .collectionLength=${this.state.collection.length}
-          .collectionTotal=${this.state.collectionTotal}
-          .stillLoading=${this.state.stillLoading}
+          .collectionDisplayLength=${collectionDisplay.length}
+          .collectionLength=${collection.length}
+          .collectionTotal=${collectionTotal}
+          .stillLoading=${stillLoading}
           .userName=${this.discogsUser}
         ></collection-header>
         <collection-sort
-          .display=${this.state.display}
-          .stillLoading=${this.state.stillLoading}
+          .direction=${direction}
+          .display=${display}
+          .stillLoading=${stillLoading}
           @dispatch=${this._dispatch}
         ></collection-sort>
         <collection-active-filters
-          .filteredArtists=${this.state.filteredArtists}
-          .filteredGenres=${this.state.filteredGenres}
-          .filteredLabels=${this.state.filteredLabels}
-          .filteredStyles=${this.state.filteredStyles}
+          .filteredArtists=${filteredArtists}
+          .filteredGenres=${filteredGenres}
+          .filteredLabels=${filteredLabels}
+          .filteredStyles=${filteredStyles}
           @filterCheckboxes=${this._filterCheckboxes}
         ></collection-active-filters>
         <div class="collection">
-          ${this.state.display === 'grid'
-            ? this.state.collectionDisplay.map((item) => {
+          ${display === 'grid'
+            ? collectionDisplay.map((item) => {
                 const basicInformation = item.basic_information;
                 return html`<discogs-listing
                   .basicInformation="${basicInformation}"
-                  display="${this.state.display}"
+                  display="${display}"
                 ></discogs-listing>`;
               })
             : html`<discogs-list
-                .collectionDisplay=${this.state.collectionDisplay}
-                .display=${this.state.display}
+                .collectionDisplay=${collectionDisplay}
+                .display=${display}
               ></discogs-list>`}
         </div>
       </div>
+      <collection-footer
+        .direction=${direction}
+        .display=${display}
+        .stillLoading=${stillLoading}
+        .textFilter=${textFilter}
+        @filterText=${this._filterText}
+        @dispatch=${this._dispatch}
+      ></collection-footer>
       <collection-filters
-        .artists=${this.state.artists}
-        .collectionDisplayLength=${this.state.collectionDisplay.length}
-        .collectionTotal=${this.state.collectionTotal}
-        .filteredArtists=${this.state.filteredArtists}
-        .filteredGenres=${this.state.filteredGenres}
-        .filteredLabels=${this.state.filteredLabels}
-        .filteredStyles=${this.state.filteredStyles}
-        .genres=${this.state.genres}
-        .labels=${this.state.labels}
-        .showFilters=${this.state.showFilters}
-        .styles=${this.state.styles}
+        .artists=${artists}
+        .collectionDisplayLength=${collectionDisplay.length}
+        .collectionTotal=${collectionTotal}
+        .filteredArtists=${filteredArtists}
+        .filteredGenres=${filteredGenres}
+        .filteredLabels=${filteredLabels}
+        .filteredStyles=${filteredStyles}
+        .genres=${genres}
+        .labels=${labels}
+        .showFilters=${showFilters}
+        .stillLoading=${stillLoading}
+        .styles=${styles}
+        .textFilter=${textFilter}
         @dispatch=${this._dispatch}
         @filterCheckboxes=${this._filterCheckboxes}
+        @filterText=${this._filterText}
       ></collection-filters>
     `;
   }
@@ -154,9 +185,17 @@ export class DiscogsCollection extends LitElement {
     newState = dispatch(newState, {type: 'FILTER_COLLECTION', filter});
     this.state = dispatch(newState, {type: 'SET_FILTERS'});
   }
+
+  _filterText(e) {
+    let newState = {...this.state, textFilter: e.detail.text};
+    newState = dispatch(newState, {type: 'FILTER_COLLECTION'});
+    this.state = dispatch(newState, {type: 'SET_FILTERS'});
+  }
+
   _dispatch(e) {
     // console.log(e);
     this.state = dispatch(this.state, e.detail);
+    console.log(this.state);
   }
 }
 window.customElements.define('discogs-collection', DiscogsCollection);
