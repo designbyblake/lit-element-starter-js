@@ -15,6 +15,11 @@ class CollectionSort extends LitElement {
      */
     direction: {type: String},
     /**
+     * The current value of the sort select.
+     * @type {string}
+     */
+    sortedOn: {type: String},
+    /**
      * The is the collection loading.
      * @type {boolean}
      */
@@ -42,10 +47,17 @@ class CollectionSort extends LitElement {
           height: 48px;
           padding: 0;
           position: relative;
-          transition: background-color 0.25s ease;
+          transition: all 0.25s ease;
           width: 48px;
         }
+        button[disabled] {
+          opacity: 0.3;
+        }
 
+        button span,
+        button svg {
+          pointer-events: none;
+        }
         button:hover:not(.active) {
           background: var(--button-hover);
         }
@@ -54,10 +66,15 @@ class CollectionSort extends LitElement {
           background-color: var(--color-white);
         }
         button.btn-wide {
-          width: auto;
+          font-size: 1.325rem;
+          height: 48px;
           padding-left: 5px;
           padding-right: 10px;
-          font-size: 1.5rem;
+          width: auto;
+        }
+
+        button.btn-clear {
+          padding: 10px;
         }
 
         button svg {
@@ -104,6 +121,9 @@ class CollectionSort extends LitElement {
           text-shadow: 3px 2px 8px black;
           transition: all 0.25s ease;
         }
+        select[disabled] {
+          opacity: 0.3;
+        }
         select:hover,
         select:focus {
           background-color: var(--button-hover);
@@ -116,6 +136,7 @@ class CollectionSort extends LitElement {
     const isList = this.display === 'list' && 'active';
     const isAscending = this.direction === 'ascending' && 'active';
     const isDescending = this.direction === 'descending' && 'active';
+    const sortList = ['Artist', 'Album Name', 'Date Added'];
     return html`
       <div class="collection-sort">
         <button
@@ -137,10 +158,13 @@ class CollectionSort extends LitElement {
           <span class="a11y">Display Display collection as a list</span>
         </button>
 
-        <select @change=${this._dispatchSort}>
-          <option value="Artist">Artist</option>
-          <option value="Album Name">Album Name</option>
-          <option value="Date Added">Date Added</option>
+        <select @change=${this._dispatchSort} .disabled=${this.stillLoading}>
+          ${sortList.map(
+            (key) =>
+              html`<option value="${key}" .selected=${this.sortedOn === key}>
+                ${key}
+              </option>`
+          )}
         </select>
 
         <button
@@ -148,6 +172,7 @@ class CollectionSort extends LitElement {
           class="hide-small ${isDescending}"
           data-direction="descending"
           type="button"
+          .disabled=${this.stillLoading}
         >
           <span aria-hidden="true">${sortDescending}</span>
           <span class="a11y">Display collection in descending order</span>
@@ -158,6 +183,7 @@ class CollectionSort extends LitElement {
           class="hide-small ${isAscending}"
           data-direction="ascending"
           type="button"
+          .disabled=${this.stillLoading}
         >
           <span aria-hidden="true">${sortAscending}</span>
           <span class="a11y">Display collection in ascending order</span>
@@ -172,6 +198,14 @@ class CollectionSort extends LitElement {
           >
             <span class="btn__icon">${filter} </span>
             <span class="btn__text">Filters</span>
+          </button>
+
+          <button
+            @click=${this._dispatchResetFilters}
+            class="btn-wide btn-clear btn--outline btn--shadow"
+            type="button"
+          >
+            <span class="btn__text">Clear Filters</span>
           </button>
         </div>
       </div>
@@ -194,6 +228,12 @@ class CollectionSort extends LitElement {
       type: 'TOGGLE_FILTERS',
     };
     callDispatch(this, action);
+
+    const options = {
+      bubbles: true,
+      composed: true,
+    };
+    this.dispatchEvent(new CustomEvent('triggerTrap', options));
   }
 
   _dispatchDirection(e) {
@@ -212,6 +252,14 @@ class CollectionSort extends LitElement {
       type: 'SORT_ORDER',
     };
     callDispatch(this, action);
+  }
+
+  _dispatchResetFilters() {
+    const options = {
+      bubbles: true,
+      composed: true,
+    };
+    this.dispatchEvent(new CustomEvent('resetFilters', options));
   }
 }
 window.customElements.define('collection-sort', CollectionSort);

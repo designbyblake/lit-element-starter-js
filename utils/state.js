@@ -22,6 +22,7 @@ export const initialState = {
   loaded: false,
   updateCollectionDisplay: true,
   scrollPosition: 0,
+  sortedOn: 'Artist',
   showFilters: false,
   stillLoading: true,
   userName: null,

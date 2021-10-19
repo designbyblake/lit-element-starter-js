@@ -1,5 +1,6 @@
-import {LitElement, html, css, unsafeCSS} from 'lit';
+import {LitElement, html, css, unsafeCSS} from 'lit-element';
 import {smallDown} from './media-queries';
+
 export class AlbumCover extends LitElement {
   static get properties() {
     return {
@@ -63,7 +64,7 @@ export class AlbumCover extends LitElement {
         }
       }
       span {
-        background: url(/assets/img/711.gif) no-repeat 50% 50%;
+        background: url(../assets/img/711.gif) no-repeat 50% 50%;
         height: 100%;
         position: absolute;
         width: 100%;

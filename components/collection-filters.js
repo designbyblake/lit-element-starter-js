@@ -191,18 +191,15 @@ class CollectionFilters extends LitElement {
       `,
     ];
   }
+  firstUpdated() {
+    this.shadowRoot.getElementById('collection-filters').focus();
+    setTimeout(() => {
+      this.style.setProperty('--filter-opacity', 1);
+    }, 10);
 
-  updated(changedProperties) {
-    if (this.showFilters === true) {
-      setTimeout(() => {
-        this.style.setProperty('--filter-opacity', 1);
-      }, 10);
-
-      setTimeout(() => {
-        this.style.setProperty('--collection-filters-left', 0);
-      }, 250);
-    }
-    return changedProperties.has('showFilters');
+    setTimeout(() => {
+      this.style.setProperty('--collection-filters-left', 0);
+    }, 250);
   }
 
   connectedCallback() {
@@ -278,6 +275,8 @@ class CollectionFilters extends LitElement {
     `;
   }
   _close = () => {
+    if (!this.showFilters) return;
+
     this.style.setProperty('--collection-filters-left', '-100%');
     setTimeout(() => {
       this.style.setProperty('--filter-opacity', 0);
@@ -287,9 +286,11 @@ class CollectionFilters extends LitElement {
         data: {showFilter: false},
         type: 'TOGGLE_FILTERS',
       };
+
       callDispatch(this, action);
     }, 500);
   };
+
   _keypress = (e) => {
     if (e.keyCode === 27) {
       this._close();

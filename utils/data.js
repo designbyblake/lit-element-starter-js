@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+import {api} from './api';
 export function loadData(state, data) {
   const collection = [];
   const collectionDisplay = [];
@@ -57,4 +59,19 @@ export function loadData(state, data) {
     };
   }
   return newState;
+}
+
+export function getAlbum(albumId) {
+  const url = `https://api.discogs.com/releases/${albumId}`;
+  return new Promise((resolve, reject) => {
+    fetch(`${url}?secret=${api.secret}&key=${api.key}`)
+      .then((res) => res.json())
+      .then((album) => {
+        if (album.message) {
+          reject(album.message);
+          return;
+        }
+        resolve(album);
+      });
+  });
 }

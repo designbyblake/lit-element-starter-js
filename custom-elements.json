@@ -125,6 +125,108 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/active-filter.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "ActiveFilter",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_filterCheckbox",
+              "parameters": [
+                {
+                  "name": "name"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "filtered",
+              "privacy": "public",
+              "description": "List of active filters.",
+              "type": {
+                "text": "array"
+              },
+              "attribute": "filtered"
+            },
+            {
+              "kind": "field",
+              "name": "heading",
+              "privacy": "public",
+              "description": "The is the collection loading.",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "heading"
+            },
+            {
+              "kind": "field",
+              "name": "keyname",
+              "privacy": "public",
+              "description": "The is the collection loading.",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "keyname"
+            }
+          ],
+          "events": [
+            {
+              "name": "filterCheckboxes",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "filtered",
+              "description": "List of active filters.",
+              "type": {
+                "text": "array"
+              },
+              "fieldName": "filtered"
+            },
+            {
+              "name": "heading",
+              "description": "The is the collection loading.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "heading"
+            },
+            {
+              "name": "keyname",
+              "description": "The is the collection loading.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "keyname"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "tagName": "active-filter",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "active-filter",
+          "declaration": {
+            "name": "ActiveFilter",
+            "module": "components/active-filter.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/album-cover.js",
       "declarations": [
         {
@@ -132,17 +234,6 @@
           "description": "",
           "name": "AlbumCover",
           "members": [
-            {
-              "kind": "field",
-              "name": "test",
-              "type": {
-                "text": "string"
-              },
-              "default": "'Frank'",
-              "privacy": "public",
-              "description": "This is a test.",
-              "attribute": "test"
-            },
             {
               "kind": "field",
               "name": "src",
@@ -162,6 +253,16 @@
                 "text": "string"
               },
               "attribute": "alt"
+            },
+            {
+              "kind": "field",
+              "name": "display",
+              "privacy": "public",
+              "description": "The display type text for the album cover.",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "display"
             }
           ],
           "attributes": [
@@ -182,17 +283,17 @@
               "fieldName": "alt"
             },
             {
-              "name": "test",
-              "description": "This is a test.",
+              "name": "display",
+              "description": "The display type text for the album cover.",
               "type": {
                 "text": "string"
               },
-              "fieldName": "test"
+              "fieldName": "display"
             }
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit"
+            "package": "lit-element"
           },
           "tagName": "album-cover",
           "customElement": true
@@ -219,9 +320,2109 @@
     },
     {
       "kind": "javascript-module",
-      "path": "test/my-element_test.js",
-      "declarations": [],
-      "exports": []
+      "path": "components/background-image.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "BackgroundImage",
+          "members": [
+            {
+              "kind": "field",
+              "name": "bgImage",
+              "type": {
+                "text": "string"
+              },
+              "default": "'/assets/img/records-5723264_1920.jpeg'",
+              "privacy": "public",
+              "attribute": "bgImage"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "bgImage",
+              "fieldName": "bgImage"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "tagName": "background-image",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "BackgroundImage",
+          "declaration": {
+            "name": "BackgroundImage",
+            "module": "components/background-image.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "background-image",
+          "declaration": {
+            "name": "BackgroundImage",
+            "module": "components/background-image.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/checkboxes-filter.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "CheckboxesFilter",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_filterCheckbox",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "privacy": "public",
+              "description": "Are the inputs focusable.",
+              "type": {
+                "text": "boolean"
+              },
+              "attribute": "disabled"
+            },
+            {
+              "kind": "field",
+              "name": "filterName",
+              "privacy": "public",
+              "description": "Display name of filter.",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "filterName"
+            },
+            {
+              "kind": "field",
+              "name": "keyname",
+              "privacy": "public",
+              "description": "Name of key to filter on.",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "keyname"
+            },
+            {
+              "kind": "field",
+              "name": "currentFiltered",
+              "privacy": "public",
+              "description": "Currently filtered.",
+              "type": {
+                "text": "array"
+              },
+              "attribute": "currentFiltered"
+            },
+            {
+              "kind": "field",
+              "name": "filterBy",
+              "privacy": "public",
+              "description": "Name used for filtering function.",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "filterBy"
+            }
+          ],
+          "events": [
+            {
+              "name": "filterCheckboxes",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "disabled",
+              "description": "Are the inputs focusable.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "disabled"
+            },
+            {
+              "name": "filterName",
+              "description": "Display name of filter.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "filterName"
+            },
+            {
+              "name": "keyname",
+              "description": "Name of key to filter on.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "keyname"
+            },
+            {
+              "name": "currentFiltered",
+              "description": "Currently filtered.",
+              "type": {
+                "text": "array"
+              },
+              "fieldName": "currentFiltered"
+            },
+            {
+              "name": "filterBy",
+              "description": "Name used for filtering function.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "filterBy"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "tagName": "checkboxes-filter",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "checkboxes-filter",
+          "declaration": {
+            "name": "CheckboxesFilter",
+            "module": "components/checkboxes-filter.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/collection-active-filters.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "CollectionActiveFilters",
+          "members": [
+            {
+              "kind": "field",
+              "name": "filteredArtists",
+              "privacy": "public",
+              "description": "List of all filtered artists.",
+              "type": {
+                "text": "object"
+              },
+              "attribute": "filteredArtists"
+            },
+            {
+              "kind": "field",
+              "name": "filteredGenres",
+              "privacy": "public",
+              "description": "List of all filtered genres.",
+              "type": {
+                "text": "object"
+              },
+              "attribute": "filteredGenres"
+            },
+            {
+              "kind": "field",
+              "name": "filteredStyles",
+              "privacy": "public",
+              "description": "List of all filtered styles.",
+              "type": {
+                "text": "object"
+              },
+              "attribute": "filteredStyles"
+            },
+            {
+              "kind": "field",
+              "name": "filteredLabels",
+              "privacy": "public",
+              "description": "List of all filtered record labels.",
+              "type": {
+                "text": "object"
+              },
+              "attribute": "filteredLabels"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "filteredArtists",
+              "description": "List of all filtered artists.",
+              "type": {
+                "text": "object"
+              },
+              "fieldName": "filteredArtists"
+            },
+            {
+              "name": "filteredGenres",
+              "description": "List of all filtered genres.",
+              "type": {
+                "text": "object"
+              },
+              "fieldName": "filteredGenres"
+            },
+            {
+              "name": "filteredStyles",
+              "description": "List of all filtered styles.",
+              "type": {
+                "text": "object"
+              },
+              "fieldName": "filteredStyles"
+            },
+            {
+              "name": "filteredLabels",
+              "description": "List of all filtered record labels.",
+              "type": {
+                "text": "object"
+              },
+              "fieldName": "filteredLabels"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "tagName": "collection-active-filters",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "collection-active-filters",
+          "declaration": {
+            "name": "CollectionActiveFilters",
+            "module": "components/collection-active-filters.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/collection-filters.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "CollectionFilters",
+          "members": [
+            {
+              "kind": "field",
+              "name": "_close"
+            },
+            {
+              "kind": "field",
+              "name": "_keypress"
+            },
+            {
+              "kind": "field",
+              "name": "collectionTotal",
+              "privacy": "public",
+              "description": "Total number of items in the collection.",
+              "type": {
+                "text": "number"
+              },
+              "attribute": "collectionTotal"
+            },
+            {
+              "kind": "field",
+              "name": "collectionDisplayLength",
+              "privacy": "public",
+              "description": "Total number of collection items showing after filtering",
+              "type": {
+                "text": "number"
+              },
+              "attribute": "collectionDisplayLength"
+            },
+            {
+              "kind": "field",
+              "name": "showFilters",
+              "privacy": "public",
+              "description": "Should we show the filters.",
+              "type": {
+                "text": "boolean"
+              },
+              "attribute": "showFilters"
+            },
+            {
+              "kind": "field",
+              "name": "artists",
+              "privacy": "public",
+              "description": "List of all artists.",
+              "type": {
+                "text": "object"
+              },
+              "attribute": "artists"
+            },
+            {
+              "kind": "field",
+              "name": "filteredArtists",
+              "privacy": "public",
+              "description": "List of all filtered artists.",
+              "type": {
+                "text": "object"
+              },
+              "attribute": "filteredArtists"
+            },
+            {
+              "kind": "field",
+              "name": "genres",
+              "privacy": "public",
+              "description": "List of all genres.",
+              "type": {
+                "text": "object"
+              },
+              "attribute": "genres"
+            },
+            {
+              "kind": "field",
+              "name": "filteredGenres",
+              "privacy": "public",
+              "description": "List of all filtered genres.",
+              "type": {
+                "text": "object"
+              },
+              "attribute": "filteredGenres"
+            },
+            {
+              "kind": "field",
+              "name": "filteredStyles",
+              "privacy": "public",
+              "description": "List of all filtered styles.",
+              "type": {
+                "text": "object"
+              },
+              "attribute": "filteredStyles"
+            },
+            {
+              "kind": "field",
+              "name": "labels",
+              "privacy": "public",
+              "description": "List of all record labels.",
+              "type": {
+                "text": "object"
+              },
+              "attribute": "labels"
+            },
+            {
+              "kind": "field",
+              "name": "filteredLabels",
+              "privacy": "public",
+              "description": "List of all filtered record labels.",
+              "type": {
+                "text": "object"
+              },
+              "attribute": "filteredLabels"
+            },
+            {
+              "kind": "field",
+              "name": "stillLoading",
+              "privacy": "public",
+              "description": "The is the collection loading.",
+              "type": {
+                "text": "boolean"
+              },
+              "attribute": "stillLoading"
+            },
+            {
+              "kind": "field",
+              "name": "textFilter",
+              "privacy": "public",
+              "description": "The is the collection loading.",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "textFilter"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "collectionTotal",
+              "description": "Total number of items in the collection.",
+              "type": {
+                "text": "number"
+              },
+              "fieldName": "collectionTotal"
+            },
+            {
+              "name": "collectionDisplayLength",
+              "description": "Total number of collection items showing after filtering",
+              "type": {
+                "text": "number"
+              },
+              "fieldName": "collectionDisplayLength"
+            },
+            {
+              "name": "showFilters",
+              "description": "Should we show the filters.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "showFilters"
+            },
+            {
+              "name": "artists",
+              "description": "List of all artists.",
+              "type": {
+                "text": "object"
+              },
+              "fieldName": "artists"
+            },
+            {
+              "name": "filteredArtists",
+              "description": "List of all filtered artists.",
+              "type": {
+                "text": "object"
+              },
+              "fieldName": "filteredArtists"
+            },
+            {
+              "name": "genres",
+              "description": "List of all genres.",
+              "type": {
+                "text": "object"
+              },
+              "fieldName": "genres"
+            },
+            {
+              "name": "filteredGenres",
+              "description": "List of all filtered genres.",
+              "type": {
+                "text": "object"
+              },
+              "fieldName": "filteredGenres"
+            },
+            {
+              "name": "styles",
+              "description": "List of all styles.",
+              "type": {
+                "text": "object"
+              },
+              "fieldName": "styles"
+            },
+            {
+              "name": "filteredStyles",
+              "description": "List of all filtered styles.",
+              "type": {
+                "text": "object"
+              },
+              "fieldName": "filteredStyles"
+            },
+            {
+              "name": "labels",
+              "description": "List of all record labels.",
+              "type": {
+                "text": "object"
+              },
+              "fieldName": "labels"
+            },
+            {
+              "name": "filteredLabels",
+              "description": "List of all filtered record labels.",
+              "type": {
+                "text": "object"
+              },
+              "fieldName": "filteredLabels"
+            },
+            {
+              "name": "stillLoading",
+              "description": "The is the collection loading.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "stillLoading"
+            },
+            {
+              "name": "textFilter",
+              "description": "The is the collection loading.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "textFilter"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "tagName": "collection-filters",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "collection-filters",
+          "declaration": {
+            "name": "CollectionFilters",
+            "module": "components/collection-filters.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/collection-footer.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "CollectionFooter",
+          "members": [
+            {
+              "kind": "field",
+              "name": "display",
+              "privacy": "public",
+              "description": "The display type, grid or list.",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "display"
+            },
+            {
+              "kind": "field",
+              "name": "direction",
+              "privacy": "public",
+              "description": "The direction for sorting.",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "direction"
+            },
+            {
+              "kind": "field",
+              "name": "sortedOn",
+              "privacy": "public",
+              "description": "The current value of the sort select.",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "sortedOn"
+            },
+            {
+              "kind": "field",
+              "name": "stillLoading",
+              "privacy": "public",
+              "description": "The is the collection loading.",
+              "type": {
+                "text": "boolean"
+              },
+              "attribute": "stillLoading"
+            },
+            {
+              "kind": "field",
+              "name": "textFilter",
+              "privacy": "public",
+              "description": "The is the collection loading.",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "textFilter"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "display",
+              "description": "The display type, grid or list.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "display"
+            },
+            {
+              "name": "direction",
+              "description": "The direction for sorting.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "direction"
+            },
+            {
+              "name": "sortedOn",
+              "description": "The current value of the sort select.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "sortedOn"
+            },
+            {
+              "name": "stillLoading",
+              "description": "The is the collection loading.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "stillLoading"
+            },
+            {
+              "name": "textFilter",
+              "description": "The is the collection loading.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "textFilter"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "tagName": "collection-footer",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "collection-footer",
+          "declaration": {
+            "name": "CollectionFooter",
+            "module": "components/collection-footer.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/collection-header.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "CollectionHeader",
+          "members": [
+            {
+              "kind": "field",
+              "name": "collectionDisplayLength",
+              "privacy": "public",
+              "attribute": "collectionDisplayLength"
+            },
+            {
+              "kind": "field",
+              "name": "collectionLength",
+              "privacy": "public",
+              "attribute": "collectionLength"
+            },
+            {
+              "kind": "field",
+              "name": "collectionTotal",
+              "privacy": "public",
+              "attribute": "collectionTotal"
+            },
+            {
+              "kind": "field",
+              "name": "stillLoading",
+              "privacy": "public",
+              "attribute": "stillLoading"
+            },
+            {
+              "kind": "field",
+              "name": "userName",
+              "privacy": "public",
+              "attribute": "userName"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "collectionDisplayLength",
+              "fieldName": "collectionDisplayLength"
+            },
+            {
+              "name": "collectionLength",
+              "fieldName": "collectionLength"
+            },
+            {
+              "name": "collectionTotal",
+              "fieldName": "collectionTotal"
+            },
+            {
+              "name": "stillLoading",
+              "fieldName": "stillLoading"
+            },
+            {
+              "name": "userName",
+              "fieldName": "userName"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "tagName": "collection-header",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "collection-header",
+          "declaration": {
+            "name": "CollectionHeader",
+            "module": "components/collection-header.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/collection-sort.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "CollectionSort",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_dispatchDisplay",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_dispatchFilter"
+            },
+            {
+              "kind": "method",
+              "name": "_dispatchDirection",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_dispatchSort",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "display",
+              "privacy": "public",
+              "description": "The display type, grid or list.",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "display"
+            },
+            {
+              "kind": "field",
+              "name": "direction",
+              "privacy": "public",
+              "description": "The direction for sorting.",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "direction"
+            },
+            {
+              "kind": "field",
+              "name": "sortedOn",
+              "privacy": "public",
+              "description": "The current value of the sort select.",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "sortedOn"
+            },
+            {
+              "kind": "field",
+              "name": "stillLoading",
+              "privacy": "public",
+              "description": "The is the collection loading.",
+              "type": {
+                "text": "boolean"
+              },
+              "attribute": "stillLoading"
+            }
+          ],
+          "events": [
+            {
+              "name": "triggerTrap",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "display",
+              "description": "The display type, grid or list.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "display"
+            },
+            {
+              "name": "direction",
+              "description": "The direction for sorting.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "direction"
+            },
+            {
+              "name": "sortedOn",
+              "description": "The current value of the sort select.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "sortedOn"
+            },
+            {
+              "name": "stillLoading",
+              "description": "The is the collection loading.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "stillLoading"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "tagName": "collection-sort",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "collection-sort",
+          "declaration": {
+            "name": "CollectionSort",
+            "module": "components/collection-sort.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/discogs-list.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "DiscogsList",
+          "members": [
+            {
+              "kind": "field",
+              "name": "collectionDisplay",
+              "privacy": "public",
+              "attribute": "collectionDisplay"
+            },
+            {
+              "kind": "field",
+              "name": "display",
+              "privacy": "public",
+              "attribute": "display"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "collectionDisplay",
+              "fieldName": "collectionDisplay"
+            },
+            {
+              "name": "display",
+              "fieldName": "display"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "tagName": "discogs-list",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "discogs-list",
+          "declaration": {
+            "name": "DiscogsList",
+            "module": "components/discogs-list.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/discogs-listing.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "DiscogsListing",
+          "members": [
+            {
+              "kind": "field",
+              "name": "_getAlt"
+            },
+            {
+              "kind": "field",
+              "name": "basicInformation",
+              "privacy": "public",
+              "attribute": "basicInformation"
+            },
+            {
+              "kind": "field",
+              "name": "display",
+              "privacy": "public",
+              "attribute": "display"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "basicInformation",
+              "fieldName": "basicInformation"
+            },
+            {
+              "name": "display",
+              "fieldName": "display"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "tagName": "discogs-listing",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "discogs-listing",
+          "declaration": {
+            "name": "DiscogsListing",
+            "module": "components/discogs-listing.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/discogs-navigation.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "DiscogsNavigation",
+          "members": [],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "tagName": "discogs-navigation",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DiscogsNavigation",
+          "declaration": {
+            "name": "DiscogsNavigation",
+            "module": "components/discogs-navigation.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "discogs-navigation",
+          "declaration": {
+            "name": "DiscogsNavigation",
+            "module": "components/discogs-navigation.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/discogs-user-form.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "DiscogsUserForm",
+          "members": [
+            {
+              "kind": "field",
+              "name": "input"
+            },
+            {
+              "kind": "method",
+              "name": "_usernameUpdate"
+            },
+            {
+              "kind": "field",
+              "name": "username",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "privacy": "public",
+              "attribute": "username"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "username",
+              "fieldName": "username"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "tagName": "discogs-user-form",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DiscogsUserForm",
+          "declaration": {
+            "name": "DiscogsUserForm",
+            "module": "components/discogs-user-form.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "discogs-user-form",
+          "declaration": {
+            "name": "DiscogsUserForm",
+            "module": "components/discogs-user-form.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/filtered-checkboxes.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "FilteredCheckboxes",
+          "members": [
+            {
+              "kind": "field",
+              "name": "_toggleFilter"
+            },
+            {
+              "kind": "field",
+              "name": "isOpen",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "description": "Is the filter open or closed.",
+              "attribute": "isOpen"
+            },
+            {
+              "kind": "field",
+              "name": "legend",
+              "privacy": "public",
+              "description": "Total number of items in the collection.",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "legend"
+            },
+            {
+              "kind": "field",
+              "name": "keyname",
+              "privacy": "public",
+              "description": "Name of key to filter on.",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "keyname"
+            },
+            {
+              "kind": "field",
+              "name": "filterBy",
+              "privacy": "public",
+              "description": "Name used for filtering function.",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "filterBy"
+            },
+            {
+              "kind": "field",
+              "name": "theSelect",
+              "privacy": "public",
+              "description": "Options to filter on.",
+              "type": {
+                "text": "object"
+              },
+              "attribute": "theSelect"
+            },
+            {
+              "kind": "field",
+              "name": "currentFiltered",
+              "privacy": "public",
+              "description": "Currently filtered objects.",
+              "type": {
+                "text": "object"
+              },
+              "attribute": "currentFiltered"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "legend",
+              "description": "Total number of items in the collection.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "legend"
+            },
+            {
+              "name": "keyname",
+              "description": "Name of key to filter on.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "keyname"
+            },
+            {
+              "name": "filterBy",
+              "description": "Name used for filtering function.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "filterBy"
+            },
+            {
+              "name": "theSelect",
+              "description": "Options to filter on.",
+              "type": {
+                "text": "object"
+              },
+              "fieldName": "theSelect"
+            },
+            {
+              "name": "currentFiltered",
+              "description": "Currently filtered objects.",
+              "type": {
+                "text": "object"
+              },
+              "fieldName": "currentFiltered"
+            },
+            {
+              "name": "isOpen",
+              "description": "Is the filter open or closed.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "isOpen"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "tagName": "filtered-checkboxes",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "filtered-checkboxes",
+          "declaration": {
+            "name": "FilteredCheckboxes",
+            "module": "components/filtered-checkboxes.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/focus-trap.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "FocusTrap",
+          "members": [
+            {
+              "kind": "method",
+              "name": "handleFocus",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ]
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "tagName": "focus-trap",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "focus-trap",
+          "declaration": {
+            "name": "FocusTrap",
+            "module": "components/focus-trap.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/global-styles.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "globalStyles",
+          "default": "css`\n  main {\n    display: block;\n    position: relative;\n    z-index: 1;\n  }\n\n  hr {\n    box-sizing: content-box;\n    height: 0;\n    overflow: visible;\n  }\n\n  pre {\n    font-family: monospace, monospace;\n    font-size: 1em;\n  }\n\n  b,\n  strong {\n    font-weight: 700;\n  }\n\n  code,\n  kbd,\n  samp {\n    font-family: monospace, monospace;\n    font-size: 1em;\n  }\n\n  small {\n    font-size: 80%;\n  }\n\n  sub,\n  sup {\n    font-size: 75%;\n    line-height: 0;\n    position: relative;\n    vertical-align: baseline;\n  }\n\n  sub {\n    bottom: -0.25em;\n  }\n\n  sup {\n    top: -0.5em;\n  }\n\n  img {\n    border-style: none;\n    max-width: 100%;\n    height: auto;\n  }\n\n  button,\n  input,\n  optgroup,\n  select,\n  textarea {\n    font-family: inherit;\n    font-size: 100%;\n    line-height: 1.15;\n    margin: 0;\n  }\n\n  button,\n  [type='button'],\n  [type='reset'],\n  [type='submit'] {\n    -webkit-appearance: button;\n  }\n\n  fieldset {\n    padding: 0.35em 0.75em 0.625em;\n  }\n\n  label {\n    cursor: pointer;\n  }\n\n  legend {\n    box-sizing: border-box;\n    color: inherit;\n    display: table;\n    max-width: 100%;\n    padding: 0;\n    white-space: normal;\n  }\n\n  progress {\n    vertical-align: baseline;\n  }\n\n  textarea {\n    overflow: auto;\n  }\n\n  [type='checkbox'],\n  [type='radio'] {\n    box-sizing: border-box;\n    padding: 0;\n  }\n\n  [type='number']::-webkit-inner-spin-button,\n  [type='number']::-webkit-outer-spin-button {\n    height: auto;\n  }\n\n  details {\n    display: block;\n  }\n\n  summary {\n    display: list-item;\n  }\n\n  template {\n    display: none;\n  }\n\n  [hidden] {\n    display: none !important;\n  }\n\n  * {\n    box-sizing: border-box;\n  }\n\n  html {\n    color: var(--text-color);\n    margin: 0;\n    padding: 0;\n  }\n\n  body {\n    --scrollbar-width: calc(100vw - 100%);\n    color: var(--black);\n    font-family: var(--font-sans-serif);\n    font-size: 1.8rem;\n    font-weight: 400;\n    margin: 0;\n    overflow-x: hidden;\n    padding: 0;\n    width: 100%;\n  }\n\n  .sr-only,\n  .a11y,\n  .access {\n    -webkit-clip-path: inset(50%);\n    border: 0;\n    clip-path: inset(50%);\n    clip: rect(0, 0, 0, 0);\n    height: 1px;\n    overflow: hidden;\n    padding: 0;\n    position: absolute;\n    white-space: nowrap;\n    width: 1px;\n  }\n\n  .sr-only-focusable:active,\n  .a11y-focusable:active,\n  .access-focusable:active {\n    position: static;\n    width: auto;\n    height: auto;\n    overflow: visible;\n    clip: auto;\n    white-space: normal;\n    -webkit-clip-path: none;\n    clip-path: none;\n  }\n\n  .no-margin-top {\n    margin-top: 0;\n  }\n\n  .no-margin-bottom {\n    margin-bottom: 0;\n  }\n\n  .no-margin-left {\n    margin-left: 0;\n  }\n\n  .no-margin-right {\n    margin-right: 0;\n  }\n\n  .no-margin {\n    margin: 0;\n  }\n\n  .no-padding-top {\n    padding-top: 0;\n  }\n\n  .no-padding-bottom {\n    padding-bottom: 0;\n  }\n\n  .no-padding-left {\n    padding-left: 0;\n  }\n\n  .no-padding-right {\n    padding-right: 0;\n  }\n\n  .no-padding {\n    padding: 0;\n  }\n\n  .hide-small {\n    @media (max-width: 767px) {\n      display: none;\n    }\n  }\n\n  .shadow {\n    color: #fff;\n    text-shadow: 3px 2px 8px black;\n  }\n\n  /* Headings */\n  h1,\n  h2,\n  h3,\n  h4,\n  h5,\n  h6 {\n    font-family: var(--font-sans-serif);\n    line-height: 1.2;\n    margin-bottom: var(--gutter);\n    margin-top: var(--gutter);\n  }\n\n  h1 a,\n  h2 a,\n  h3 a,\n  h4 a,\n  h5 a,\n  h6 a {\n    text-decoration: none;\n  }\n\n  h1 a:hover,\n  h1 a:focus,\n  h2 a:hover,\n  h2 a:focus,\n  h3 a:hover,\n  h3 a:focus,\n  h4 a:hover,\n  h4 a:focus,\n  h5 a:hover,\n  h5 a:focus h6 a:hover,\n  h6 a:focus {\n    text-decoration: underline;\n    text-decoration-color: #00bf79;\n  }\n\n  h1 {\n    font-size: 1.5rem;\n    margin-top: 0;\n  }\n\n  h2 {\n    font-size: 2.187rem;\n  }\n\n  h3 {\n    font-size: 1.875rem;\n  }\n\n  h4 {\n    font-size: 1.625rem;\n  }\n\n  h5 {\n    font-size: 1.5rem;\n  }\n\n  h6 {\n    font-size: 1.25rem;\n  }\n\n  /* Button */\n  button {\n    cursor: pointer;\n    margin-right: 10px;\n    transition: all 0.25s ease;\n  }\n\n  button[disabled] {\n    cursor: default;\n    opacity: 0.3;\n    pointer-events: none;\n  }\n\n  .btn {\n    align-items: center;\n    background: none;\n    border-radius: 4px;\n    border: none;\n    display: flex;\n    font-size: 1.125rem;\n    justify-content: center;\n    min-height: 48px;\n    padding: 5px 10px;\n  }\n\n  .btn__icon {\n    height: auto;\n    margin-right: 5px;\n    width: 24px;\n  }\n\n  .btn--outline {\n    background-color: var(--button-bg);\n    border: 2px solid #fff;\n    color: #fff;\n    text-shadow: 3px 2px 8px black;\n    transition: background-color 0.25s ease;\n  }\n\n  .btn--outline:hover,\n  .btn--outline:focus {\n    background: var(--button-hover);\n  }\n\n  .btn--shadow {\n    box-shadow: var(--box-shadow);\n  }\n\n  .btn--solid {\n    background: var(--button-bg);\n    color: #fff;\n    font-size: 1.125rem;\n    text-shadow: 3px 2px 8px black;\n    transition: background-color 0.25s ease;\n  }\n  .btn--solid:hover,\n  .btn--solid:focus {\n    background: var(--button-hover);\n  }\n\n  /* Layout */\n  .container {\n    margin: auto;\n    max-width: 1200px;\n    padding: 0 20px;\n  }\n\n  @media (min-width: 768px) {\n    h1 {\n      font-size: 2.25rem;\n    }\n    .btn {\n      font-size: 1.3125rem;\n    }\n  }\n\n  @media (min-width: 1000px) {\n    h1 {\n      font-size: 4rem;\n    }\n  }\n\n  @media (min-width: 1024px) {\n    h2 {\n      font-size: 3.125rem;\n    }\n\n    h3 {\n      font-size: 2.8125rem;\n    }\n\n    h4 {\n      font-size: 2.1875rem;\n    }\n\n    h5 {\n      font-size: 1.75rem;\n    }\n\n    h6 {\n      font-size: 1.5rem;\n    }\n  }\n\n  @media (prefers-reduced-motion) {\n    * {\n      transition: none !important;\n    }\n  }\n`"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "globalStyles",
+          "declaration": {
+            "name": "globalStyles",
+            "module": "components/global-styles.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/media-queries.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "fullWidth",
+          "default": "`${fw}px`"
+        },
+        {
+          "kind": "variable",
+          "name": "fullWidthGutters"
+        },
+        {
+          "kind": "variable",
+          "name": "cWidth",
+          "default": "`${cw}px`"
+        },
+        {
+          "kind": "variable",
+          "name": "cWidthGutters"
+        },
+        {
+          "kind": "variable",
+          "name": "tw",
+          "type": {
+            "text": "number"
+          },
+          "default": "1150"
+        },
+        {
+          "kind": "variable",
+          "name": "twWidth",
+          "default": "`{$tw}px`"
+        },
+        {
+          "kind": "variable",
+          "name": "twWidthGutters"
+        },
+        {
+          "kind": "variable",
+          "name": "smallUp",
+          "default": "`(min-width: ${mqSmall}px)`"
+        },
+        {
+          "kind": "variable",
+          "name": "tabletUp",
+          "default": "`(min-width: ${mqTablet}px)`"
+        },
+        {
+          "kind": "variable",
+          "name": "postTablet",
+          "default": "`(min-width: ${mqLarge + 1}px)`"
+        },
+        {
+          "kind": "variable",
+          "name": "mediumUp",
+          "default": "`(min-width: ${mqMedium}px)`"
+        },
+        {
+          "kind": "variable",
+          "name": "largeUp",
+          "default": "`(min-width: ${mqLarge}px)`"
+        },
+        {
+          "kind": "variable",
+          "name": "postLargeUp",
+          "default": "`(min-width: ${mqLarge + 1}px)`"
+        },
+        {
+          "kind": "variable",
+          "name": "xlargeUp",
+          "default": "`(min-width: ${mqXlarge}px)`"
+        },
+        {
+          "kind": "variable",
+          "name": "xxlargeUp",
+          "default": "`(min-width: ${mqXxlarge}px)`"
+        },
+        {
+          "kind": "variable",
+          "name": "xxxlargeUp",
+          "default": "`(min-width: ${mqXxxlarge}px)`"
+        },
+        {
+          "kind": "variable",
+          "name": "smallDown",
+          "default": "`(max-width: ${mqTablet - 1}px)`"
+        },
+        {
+          "kind": "variable",
+          "name": "tabletDown",
+          "default": "`(max-width: ${mqMedium - 1}px)`"
+        },
+        {
+          "kind": "variable",
+          "name": "mediumDown",
+          "default": "`(max-width: ${mqLarge - 1}px)`"
+        },
+        {
+          "kind": "variable",
+          "name": "largeDown",
+          "default": "`(max-width: ${mqLarge - 1}px)`"
+        },
+        {
+          "kind": "variable",
+          "name": "postLargeDown",
+          "default": "`(max-width: ${mqLarge}px)`"
+        },
+        {
+          "kind": "variable",
+          "name": "xlargeDown",
+          "default": "`(max-width: ${mqXlarge - 1}px)`"
+        },
+        {
+          "kind": "variable",
+          "name": "xxlargeDown",
+          "default": "`(max-width: ${mqXxlarge - 1}px)`"
+        },
+        {
+          "kind": "variable",
+          "name": "xxxlargeDown",
+          "default": "`(max-width: ${mqXxxlarge - 1}px)`"
+        },
+        {
+          "kind": "variable",
+          "name": "xsmallOnly",
+          "default": "`(min-width: ${mqXsmall}px) and (max-width: ${\n  mqSmall - 1\n}px)`"
+        },
+        {
+          "kind": "variable",
+          "name": "smallOnly",
+          "default": "`(min-width: ${mqSmall}px)  and (max-width: ${\n  mqMedium - 1\n}px)`"
+        },
+        {
+          "kind": "variable",
+          "name": "tabletOnly",
+          "default": "`(min-width: ${mqTablet}px) and (max-width: ${\n  mqLarge - 1\n}px)`"
+        },
+        {
+          "kind": "variable",
+          "name": "mediumOnly",
+          "default": "`(min-width: ${mqMedium}px) and (max-width: ${\n  mqLarge - 1\n}px)`"
+        },
+        {
+          "kind": "variable",
+          "name": "largeOnly",
+          "default": "`(min-width: ${mqLarge}px)  and (max-width: ${\n  mqXlarge - 1\n}px)`"
+        },
+        {
+          "kind": "variable",
+          "name": "xlargeOnly",
+          "default": "`(min-width: ${mqXlarge}px)  and (max-width: ${\n  mqXxlarge - 1\n}px)`"
+        },
+        {
+          "kind": "variable",
+          "name": "xxlargeOnly",
+          "default": "`(min-width: ${mqXxlarge}px)  and (max-width: ${\n  mqXxxlarge - 1\n}px)`"
+        },
+        {
+          "kind": "variable",
+          "name": "xxxlargeOnly",
+          "default": "xxxlargeUp"
+        },
+        {
+          "kind": "variable",
+          "name": "maxWidth",
+          "default": "mqXlarge"
+        },
+        {
+          "kind": "variable",
+          "name": "coarsePointer",
+          "type": {
+            "text": "string"
+          },
+          "default": "'(-moz-touch-enabled: 1), (pointer: coarse)'"
+        },
+        {
+          "kind": "variable",
+          "name": "finePointer",
+          "type": {
+            "text": "string"
+          },
+          "default": "'(-moz-touch-enabled: 0), (pointer: fine)'"
+        },
+        {
+          "kind": "variable",
+          "name": "testColor",
+          "type": {
+            "text": "string"
+          },
+          "default": "'purple'"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "testColor",
+          "declaration": {
+            "name": "testColor",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "fullWidth",
+          "declaration": {
+            "name": "fullWidth",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "fullWidthGutters",
+          "declaration": {
+            "name": "fullWidthGutters",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "cWidth",
+          "declaration": {
+            "name": "cWidth",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "cWidthGutters",
+          "declaration": {
+            "name": "cWidthGutters",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "tw",
+          "declaration": {
+            "name": "tw",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "twWidth",
+          "declaration": {
+            "name": "twWidth",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "twWidthGutters",
+          "declaration": {
+            "name": "twWidthGutters",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "smallUp",
+          "declaration": {
+            "name": "smallUp",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "tabletUp",
+          "declaration": {
+            "name": "tabletUp",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "postTablet",
+          "declaration": {
+            "name": "postTablet",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "mediumUp",
+          "declaration": {
+            "name": "mediumUp",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "largeUp",
+          "declaration": {
+            "name": "largeUp",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "postLargeUp",
+          "declaration": {
+            "name": "postLargeUp",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "xlargeUp",
+          "declaration": {
+            "name": "xlargeUp",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "xxlargeUp",
+          "declaration": {
+            "name": "xxlargeUp",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "xxxlargeUp",
+          "declaration": {
+            "name": "xxxlargeUp",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "smallDown",
+          "declaration": {
+            "name": "smallDown",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "tabletDown",
+          "declaration": {
+            "name": "tabletDown",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "mediumDown",
+          "declaration": {
+            "name": "mediumDown",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "largeDown",
+          "declaration": {
+            "name": "largeDown",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "postLargeDown",
+          "declaration": {
+            "name": "postLargeDown",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "xlargeDown",
+          "declaration": {
+            "name": "xlargeDown",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "xxlargeDown",
+          "declaration": {
+            "name": "xxlargeDown",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "xxxlargeDown",
+          "declaration": {
+            "name": "xxxlargeDown",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "xsmallOnly",
+          "declaration": {
+            "name": "xsmallOnly",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "smallOnly",
+          "declaration": {
+            "name": "smallOnly",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "tabletOnly",
+          "declaration": {
+            "name": "tabletOnly",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "mediumOnly",
+          "declaration": {
+            "name": "mediumOnly",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "largeOnly",
+          "declaration": {
+            "name": "largeOnly",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "xlargeOnly",
+          "declaration": {
+            "name": "xlargeOnly",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "xxlargeOnly",
+          "declaration": {
+            "name": "xxlargeOnly",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "xxxlargeOnly",
+          "declaration": {
+            "name": "xxxlargeOnly",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "maxWidth",
+          "declaration": {
+            "name": "maxWidth",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "coarsePointer",
+          "declaration": {
+            "name": "coarsePointer",
+            "module": "components/media-queries.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "finePointer",
+          "declaration": {
+            "name": "finePointer",
+            "module": "components/media-queries.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/router-component.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "RouterComponent",
+          "members": [
+            {
+              "kind": "field",
+              "name": "route",
+              "privacy": "public",
+              "attribute": "route"
+            },
+            {
+              "kind": "field",
+              "name": "page",
+              "privacy": "public",
+              "attribute": "page"
+            },
+            {
+              "kind": "field",
+              "name": "content",
+              "privacy": "public",
+              "attribute": "content"
+            },
+            {
+              "kind": "field",
+              "name": "ctx",
+              "privacy": "public",
+              "attribute": "ctx"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "route",
+              "fieldName": "route"
+            },
+            {
+              "name": "page",
+              "fieldName": "page"
+            },
+            {
+              "name": "content",
+              "fieldName": "content"
+            },
+            {
+              "name": "ctx",
+              "fieldName": "ctx"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "router-component",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RouterComponent",
+          "declaration": {
+            "name": "RouterComponent",
+            "module": "components/router-component.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "router-component",
+          "declaration": {
+            "name": "RouterComponent",
+            "module": "components/router-component.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/svgs.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "record",
+          "default": "svg`\n<svg viewBox=\"0 0 332.99384 381.15237\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n <defs>\n  <linearGradient id=\"a\">\n   <stop stop-color=\"#fff\" stop-opacity=\"0\" offset=\"0\"/>\n   <stop stop-color=\"#fff\" stop-opacity=\".362\" offset=\".5\"/>\n   <stop stop-color=\"#fff\" stop-opacity=\"0\" offset=\"1\"/>\n  </linearGradient>\n  <linearGradient id=\"c\" x1=\"25.357\" x2=\"76.786\" y1=\"185.93\" y2=\"157.72\" gradientUnits=\"userSpaceOnUse\">\n   <stop stop-color=\"#fff\" stop-opacity=\".232\" offset=\"0\"/>\n   <stop stop-color=\"#fff\" stop-opacity=\"0\" offset=\"1\"/>\n  </linearGradient>\n  <linearGradient id=\"b\" x1=\"202.5\" x2=\"147.86\" y1=\"85.219\" y2=\"117\" gradientUnits=\"userSpaceOnUse\">\n   <stop stop-color=\"#fff\" stop-opacity=\".203\" offset=\"0\"/>\n   <stop stop-color=\"#fff\" stop-opacity=\"0\" offset=\"1\"/>\n  </linearGradient>\n  <linearGradient id=\"e\" x1=\"166.79\" x2=\"178.04\" y1=\"93.255\" y2=\"111.83\" gradientTransform=\"matrix(-.5 .86603 .86603 .5 50.306 -30.375)\" gradientUnits=\"userSpaceOnUse\" xlink:href=\"#a\"/>\n  <linearGradient id=\"d\" x1=\"166.79\" x2=\"178.04\" y1=\"93.255\" y2=\"111.83\" gradientUnits=\"userSpaceOnUse\" xlink:href=\"#a\"/>\n </defs>\n <g transform=\"translate(-68.017 -53.9)\">\n  <g transform=\"matrix(1.5205 0 0 1.5205 60.626 58.703)\">\n   <path d=\"m114.28 35.219c-56.806 0-102.84 46.037-102.84 102.84s46.037 102.88 102.84 102.88 102.88-46.069 102.88-102.88-46.069-102.84-102.88-102.84zm0 90.625c6.9039 0 12.5 5.4543 12.5 12.219s-5.5961 12.25-12.5 12.25-12.5-5.4856-12.5-12.25 5.5961-12.219 12.5-12.219z\"/>\n   <path d=\"m73.742 147.72-57.939 25.15s4.0554 9.6597 7.1606 15.146c3.6438 6.4383 8.8745 13.249 8.8745 13.249l51.073-36.042z\" fill=\"url(#e)\"/>\n   <path d=\"m142.52 109.35 50.75-37.602s6.3379 8.342 9.5368 13.774c3.7538 6.3748 7.0368 14.31 7.0368 14.31l-56.75 26.21z\" fill=\"url(#d)\"/>\n   <path d=\"m114.28 96.656c-22.88 0-41.438 18.526-41.438 41.406s18.557 41.438 41.438 41.438 41.438-18.557 41.438-41.438-18.557-41.406-41.438-41.406zm0 29.188c6.9039 0 12.5 5.4543 12.5 12.219s-5.5961 12.25-12.5 12.25-12.5-5.4856-12.5-12.25 5.5961-12.219 12.5-12.219z\" fill=\"#666\"/>\n   <path d=\"m114.28 120.35c-9.7886 0-17.718 7.9298-17.718 17.718s7.9298 17.74 17.718 17.74 17.718-7.9509 17.718-17.74-7.9298-17.718-17.718-17.718zm0 5.8337c6.7126 0 12.154 5.3031 12.154 11.88s-5.441 11.91-12.154 11.91-12.154-5.3335-12.154-11.91 5.441-11.88 12.154-11.88z\" fill=\"#b3b3b3\"/>\n   <path d=\"m114.3 60.165c-41.256 0-74.995 32.086-77.73 72.649 2.9323-40.138 36.424-71.811 77.311-71.811 42.813 0 77.52 34.707 77.52 77.52 0 41.475-32.58 75.392-73.539 77.468 41.378-1.8765 74.377-36.046 74.377-77.887 0-43.045-34.894-77.939-77.939-77.939zm-77.834 73.958c-0.0664 1.1829-0.092 2.3653-0.1048 3.5617 0.0064-1.2021 0.0445-2.3731 0.1048-3.5617zm-0.1048 4.3998c0 41.614 32.753 75.599 73.906 77.468-41.043-2.0805-73.688-35.959-73.906-77.468z\" fill=\"#333\"/>\n   <path d=\"m157.08 184.47c24.513-22.64 26.952-60.218 6.3169-85.819 20.284 25.457 17.765 62.655-6.5278 85.092-25.438 23.494-65.105 21.918-88.599-3.5193-22.76-24.643-22.014-62.673 1.1828-86.383-23.555 23.821-24.411 62.232-1.4508 87.092 23.621 25.575 63.502 27.159 89.078 3.5383zm5.6605-86.655c-0.6097-0.7393-1.2433-1.4558-1.8923-2.1737 0.6561 0.7176 1.2758 1.4344 1.8923 2.1737zm-2.3522-2.6716c-22.836-24.725-60.946-26.944-86.423-5.4714 25.527-21.286 63.515-19.071 86.423 5.4714z\" fill=\"#4d4d4d\"/>\n   <path d=\"m115.18 228.79c48.025-0.4656 86.936-38.196 89.662-85.445-2.9604 46.756-41.59 84.003-89.183 84.464-49.837 0.4832-90.629-39.526-91.112-89.363-0.4681-48.28 37.074-88.128 84.73-91.007-48.145 2.6513-86.173 42.799-85.7 91.504 0.4858 50.106 41.499 90.332 91.605 89.846zm89.769-86.97c0.064-1.3777 0.0804-2.7543 0.0817-4.1473 6e-3 1.3994-0.025 2.7629-0.0817 4.1473zm0.0723-5.1228c-0.4696-48.441-38.98-87.631-86.905-89.343 47.8 1.9586 86.182 41.027 86.905 89.343z\" fill=\"#333\"/>\n   <path d=\"m186.76 69.397c-36.348-38.29-95.85-41.334-135.91-8.1343 39.835-32.641 98.737-29.462 134.76 8.4837 37.719 39.734 36.086 102.52-3.6483 140.24-38.492 36.541-98.673 36.185-136.69 9e-5 38.196 36.749 98.982 37.271 137.81 0.4085 39.949-37.923 41.591-101.05 3.668-141zm-137.21-7.0779c-1.1563 0.9806-2.2762 1.9985-3.3979 3.0408 1.1213-1.0532 2.2416-2.0494 3.3979-3.0408zm-4.1757 3.7791c-38.622 36.663-41.305 97.002-6.7837 136.84-34.229-39.924-31.547-100.07 6.7838-136.84z\" fill=\"#333\"/>\n   <path d=\"m74.742 147.73-57.939 25.15s4.0554 9.6597 7.1606 15.146c3.6438 6.4383 8.8745 13.249 8.8745 13.249l51.073-36.042z\" fill=\"url(#c)\"/>\n   <path d=\"m142.52 109.35 50.75-37.602s6.3379 8.342 9.5368 13.774c3.7538 6.3749 7.0368 14.31 7.0368 14.31l-56.75 26.21z\" fill=\"url(#b)\"/>\n   <path d=\"m130.48 220.94c43.825-8.5999 72.976-49.716 67.425-93.374 5.2518 43.248-23.723 83.874-67.154 92.396-45.478 8.9244-89.58-20.708-98.505-66.187-8.6455-44.057 18.893-86.876 61.969-97.619-43.562 10.618-71.494 53.794-62.772 98.239 8.9726 45.724 53.313 75.517 99.037 66.545zm67.263-94.787c-0.1761-1.2704-0.3953-2.5317-0.6312-3.8053 0.2438 1.2783 0.4474 2.5301 0.6312 3.8053zm-0.8059-4.6955c-8.6744-44.205-50.551-73.477-94.655-66.884 44.031-6.3453 85.77 22.838 94.655 66.884z\" fill=\"#4d4d4d\"/>\n   <path d=\"m96.631 87.44c-26.778 9.3454-41.408 37.813-33.994 64.76-7.1888-26.716 7.3747-54.86 33.912-64.121 27.788-9.698 58.176 4.9666 67.874 32.754 9.395 26.92-4.0683 56.313-30.183 66.938 26.431-10.591 40.11-40.243 30.632-67.4-9.7505-27.938-40.303-42.682-68.241-32.932zm-33.765 65.634c0.2249 0.7828 0.4761 1.556 0.7388 2.3355-0.2684-0.7816-0.5087-1.5503-0.7388-2.3355zm0.9286 2.8794c9.4265 27.01 38.383 41.648 65.516 33.539-27.11 7.9467-55.972-6.6476-65.516-33.539z\" fill=\"#b3b3b3\"/>\n  </g>\n </g>\n</svg>`"
+        },
+        {
+          "kind": "variable",
+          "name": "arrowUp",
+          "default": "svg`\n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\">\n  <path d=\"M16 1L1 16h9v16h12V16h9z\"/>\n</svg>\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "chevronDown",
+          "default": "svg`\n<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewBox=\"0 0 28 28\">\n<path d=\"M26.297 12.625l-11.594 11.578c-0.391 0.391-1.016 0.391-1.406 0l-11.594-11.578c-0.391-0.391-0.391-1.031 0-1.422l2.594-2.578c0.391-0.391 1.016-0.391 1.406 0l8.297 8.297 8.297-8.297c0.391-0.391 1.016-0.391 1.406 0l2.594 2.578c0.391 0.391 0.391 1.031 0 1.422z\"></path>\n</svg>\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "close",
+          "default": "svg`\n<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\"  viewBox=\"0 0 32 32\">\n<path d=\"M31.708 25.708c-0-0-0-0-0-0l-9.708-9.708 9.708-9.708c0-0 0-0 0-0 0.105-0.105 0.18-0.227 0.229-0.357 0.133-0.356 0.057-0.771-0.229-1.057l-4.586-4.586c-0.286-0.286-0.702-0.361-1.057-0.229-0.13 0.048-0.252 0.124-0.357 0.228 0 0-0 0-0 0l-9.708 9.708-9.708-9.708c-0-0-0-0-0-0-0.105-0.104-0.227-0.18-0.357-0.228-0.356-0.133-0.771-0.057-1.057 0.229l-4.586 4.586c-0.286 0.286-0.361 0.702-0.229 1.057 0.049 0.13 0.124 0.252 0.229 0.357 0 0 0 0 0 0l9.708 9.708-9.708 9.708c-0 0-0 0-0 0-0.104 0.105-0.18 0.227-0.229 0.357-0.133 0.355-0.057 0.771 0.229 1.057l4.586 4.586c0.286 0.286 0.702 0.361 1.057 0.229 0.13-0.049 0.252-0.124 0.357-0.229 0-0 0-0 0-0l9.708-9.708 9.708 9.708c0 0 0 0 0 0 0.105 0.105 0.227 0.18 0.357 0.229 0.356 0.133 0.771 0.057 1.057-0.229l4.586-4.586c0.286-0.286 0.362-0.702 0.229-1.057-0.049-0.13-0.124-0.252-0.229-0.357z\"></path>\n</svg>\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "grid",
+          "default": "svg`\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\">\n  <path d=\"M186.2 139.6h139.6V0H186.2v139.6zM372.4 0v139.6H512V0H372.4zM0 139.6h139.6V0H0v139.6zm186.2 186.2h139.6V186.2H186.2v139.6zm186.2 0H512V186.2H372.4v139.6zM0 325.8h139.6V186.2H0v139.6zM186.2 512h139.6V372.4H186.2V512zm186.2 0H512V372.4H372.4V512zM0 512h139.6V372.4H0V512z\"/>\n</svg>\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "list",
+          "default": "svg`\n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\">\n  <path d=\"M0 0h8v8H0zm12 2h20v4H12zM0 12h8v8H0zm12 2h20v4H12zM0 24h8v8H0zm12 2h20v4H12z\"/>\n</svg>\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "filter",
+          "default": "svg`\n<svg class=\"w-6 h-6\" fill=\"currentColor\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" d=\"M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z\" clip-rule=\"evenodd\"></path></svg>\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "sortAscending",
+          "default": "svg`\n<svg class=\"w-6 h-6\" fill=\"currentColor\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M3 3a1 1 0 000 2h11a1 1 0 100-2H3zM3 7a1 1 0 000 2h5a1 1 0 000-2H3zM3 11a1 1 0 100 2h4a1 1 0 100-2H3zM13 16a1 1 0 102 0v-5.586l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 101.414 1.414L13 10.414V16z\"></path></svg>\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "sortDescending",
+          "default": "svg`\n<svg class=\"w-6 h-6\" fill=\"currentColor\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M3 3a1 1 0 000 2h11a1 1 0 100-2H3zM3 7a1 1 0 000 2h7a1 1 0 100-2H3zM3 11a1 1 0 100 2h4a1 1 0 100-2H3zM15 8a1 1 0 10-2 0v5.586l-1.293-1.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L15 13.586V8z\"></path></svg>\n`"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "record",
+          "declaration": {
+            "name": "record",
+            "module": "components/svgs.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "arrowUp",
+          "declaration": {
+            "name": "arrowUp",
+            "module": "components/svgs.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "chevronDown",
+          "declaration": {
+            "name": "chevronDown",
+            "module": "components/svgs.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "close",
+          "declaration": {
+            "name": "close",
+            "module": "components/svgs.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "grid",
+          "declaration": {
+            "name": "grid",
+            "module": "components/svgs.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "list",
+          "declaration": {
+            "name": "list",
+            "module": "components/svgs.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "filter",
+          "declaration": {
+            "name": "filter",
+            "module": "components/svgs.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "sortAscending",
+          "declaration": {
+            "name": "sortAscending",
+            "module": "components/svgs.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "sortDescending",
+          "declaration": {
+            "name": "sortDescending",
+            "module": "components/svgs.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/text-filter.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "TextFilter",
+          "members": [
+            {
+              "kind": "field",
+              "name": "filter"
+            },
+            {
+              "kind": "method",
+              "name": "_filterText"
+            },
+            {
+              "kind": "field",
+              "name": "stillLoading",
+              "privacy": "public",
+              "description": "The is the collection loading.",
+              "type": {
+                "text": "boolean"
+              },
+              "attribute": "stillLoading"
+            },
+            {
+              "kind": "field",
+              "name": "textFilter",
+              "privacy": "public",
+              "description": "The is the collection loading.",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "textFilter"
+            }
+          ],
+          "events": [
+            {
+              "name": "filterText",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "stillLoading",
+              "description": "The is the collection loading.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "stillLoading"
+            },
+            {
+              "name": "textFilter",
+              "description": "The is the collection loading.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "textFilter"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "tagName": "text-filter",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "text-filter",
+          "declaration": {
+            "name": "TextFilter",
+            "module": "components/text-filter.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "stories/AlbumCover.stories.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "Primary"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "module": "stories/AlbumCover.stories.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Primary",
+          "declaration": {
+            "name": "Primary",
+            "module": "stories/AlbumCover.stories.js"
+          }
+        }
+      ]
     },
     {
       "kind": "javascript-module",
@@ -442,9 +2643,788 @@
     },
     {
       "kind": "javascript-module",
+      "path": "reducers/collectionReducer.js",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "dispatch",
+          "parameters": [
+            {
+              "name": "state"
+            },
+            {
+              "name": "action"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "dispatch",
+          "declaration": {
+            "name": "dispatch",
+            "module": "reducers/collectionReducer.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "pages/discogs-collection.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "DiscogsCollection",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_getDiscogsData"
+            },
+            {
+              "kind": "method",
+              "name": "_filterCheckboxes",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_filterText",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_trapFocus"
+            },
+            {
+              "kind": "method",
+              "name": "_dispatch",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "state",
+              "default": "initialState",
+              "privacy": "public",
+              "attribute": "state"
+            },
+            {
+              "kind": "field",
+              "name": "discogsUser",
+              "privacy": "public",
+              "attribute": "discogsUser"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "discogsUser",
+              "fieldName": "discogsUser"
+            },
+            {
+              "name": "state",
+              "fieldName": "state"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "tagName": "discogs-collection",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DiscogsCollection",
+          "declaration": {
+            "name": "DiscogsCollection",
+            "module": "pages/discogs-collection.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "discogs-collection",
+          "declaration": {
+            "name": "DiscogsCollection",
+            "module": "pages/discogs-collection.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "pages/discogs-user.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "DiscogsUser",
+          "members": [],
+          "superclass": {
+            "name": "LitElement",
+            "package": "https://unpkg.com/lit-element@latest/lit-element.js?module"
+          },
+          "tagName": "discogs-user",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DiscogsUser",
+          "declaration": {
+            "name": "DiscogsUser",
+            "module": "pages/discogs-user.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "discogs-user",
+          "declaration": {
+            "name": "DiscogsUser",
+            "module": "pages/discogs-user.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "pages/examples-page.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "ExamplesPage",
+          "members": [],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "tagName": "examples-page",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ExamplesPage",
+          "declaration": {
+            "name": "ExamplesPage",
+            "module": "pages/examples-page.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "examples-page",
+          "declaration": {
+            "name": "ExamplesPage",
+            "module": "pages/examples-page.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "pages/home-page.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "HomePage",
+          "members": [],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "tagName": "home-page",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "HomePage",
+          "declaration": {
+            "name": "HomePage",
+            "module": "pages/home-page.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "home-page",
+          "declaration": {
+            "name": "HomePage",
+            "module": "pages/home-page.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "test/my-element_test.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "utils/api.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "api",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n  token: 'FTZuqJVmCyDzXGVakILvGhZhnRTAporVIAlnNHqL',\n  username: 'designbyblake',\n  noAuth: '&key=XrkJNIPwCiPgddPIWUbM&secret=XDLuYdixEQmQqBFGeZKdeeGDgbxFWtJT',\n  perPage: 50,\n  sort: 'artist',\n  order: 'asc',\n  key: 'XrkJNIPwCiPgddPIWUbM',\n  secret: 'XDLuYdixEQmQqBFGeZKdeeGDgbxFWtJT',\n}"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "api",
+          "declaration": {
+            "name": "api",
+            "module": "utils/api.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "utils/data.js",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "loadData",
+          "parameters": [
+            {
+              "name": "state"
+            },
+            {
+              "name": "data"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "loadData",
+          "declaration": {
+            "name": "loadData",
+            "module": "utils/data.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "utils/filters.js",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "setFilters",
+          "parameters": [
+            {
+              "name": "state"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "filterCollection",
+          "parameters": [
+            {
+              "name": "state"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "sortFilters",
+          "parameters": [
+            {
+              "name": "a"
+            },
+            {
+              "name": "b"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "doTheSortOrder",
+          "parameters": [
+            {
+              "name": "state"
+            },
+            {
+              "name": "action"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "doTheDirection",
+          "parameters": [
+            {
+              "name": "state"
+            },
+            {
+              "name": "action"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "sortCollection",
+          "parameters": [
+            {
+              "name": "state"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "setFilters",
+          "declaration": {
+            "name": "setFilters",
+            "module": "utils/filters.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "filterCollection",
+          "declaration": {
+            "name": "filterCollection",
+            "module": "utils/filters.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "sortFilters",
+          "declaration": {
+            "name": "sortFilters",
+            "module": "utils/filters.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "doTheSortOrder",
+          "declaration": {
+            "name": "doTheSortOrder",
+            "module": "utils/filters.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "doTheDirection",
+          "declaration": {
+            "name": "doTheDirection",
+            "module": "utils/filters.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "sortCollection",
+          "declaration": {
+            "name": "sortCollection",
+            "module": "utils/filters.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "utils/state.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "initialState",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n  activeFilter: false,\n  artists: [],\n  currentAlbum: {},\n  currentAlbumShow: false,\n  collection: [],\n  collectionDisplay: [],\n  collectionIsLoading: true,\n  display: 'grid',\n  direction: 'descending',\n  fetchURL: '',\n  filtered: null,\n  filteredArtists: [],\n  filteredGenres: [],\n  filteredStyles: [],\n  filteredLabels: [],\n  error: null,\n  genres: [],\n  labels: [],\n  styles: [],\n  textFilter: '',\n  loaded: false,\n  updateCollectionDisplay: true,\n  scrollPosition: 0,\n  sortedOn: 'Artist',\n  showFilters: false,\n  stillLoading: true,\n  userName: null,\n}"
+        },
+        {
+          "kind": "function",
+          "name": "callDispatch",
+          "parameters": [
+            {
+              "name": "self"
+            },
+            {
+              "name": "detail"
+            },
+            {
+              "name": "bubbles",
+              "default": "true"
+            },
+            {
+              "name": "composed",
+              "default": "true"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "initialState",
+          "declaration": {
+            "name": "initialState",
+            "module": "utils/state.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "callDispatch",
+          "declaration": {
+            "name": "callDispatch",
+            "module": "utils/state.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/lit-examples/basic-properties.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "BasicProperties",
+          "members": [
+            {
+              "kind": "field",
+              "name": "name",
+              "privacy": "public",
+              "attribute": "name"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "name",
+              "fieldName": "name"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "tagName": "basic-properties",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "basic-properties",
+          "declaration": {
+            "name": "BasicProperties",
+            "module": "components/lit-examples/basic-properties.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/lit-examples/date-display.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "DateDisplay",
+          "members": [
+            {
+              "kind": "field",
+              "name": "datefield"
+            },
+            {
+              "kind": "field",
+              "name": "frames",
+              "type": {
+                "text": "array"
+              },
+              "default": "[\n      {backgroundColor: '#f00'},\n      {backgroundColor: '#FF0'},\n      {backgroundColor: '#f0F'},\n\n  ]"
+            },
+            {
+              "kind": "field",
+              "name": "date",
+              "privacy": "public",
+              "attribute": "date"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "date",
+              "fieldName": "date"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "tagName": "date-display",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "date-display",
+          "declaration": {
+            "name": "DateDisplay",
+            "module": "components/lit-examples/date-display.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/lit-examples/date-picker.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "DatePicker",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_dateChanged",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_chooseToday"
+            },
+            {
+              "kind": "field",
+              "name": "date",
+              "privacy": "public",
+              "attribute": "date"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "date",
+              "fieldName": "date"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "tagName": "date-picker",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "date-picker",
+          "declaration": {
+            "name": "DatePicker",
+            "module": "components/lit-examples/date-picker.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/lit-examples/full-component.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "FullComponent",
+          "members": [
+            {
+              "kind": "method",
+              "name": "togglePlanet"
+            },
+            {
+              "kind": "field",
+              "name": "greeting",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Hello'",
+              "privacy": "public",
+              "attribute": "greeting"
+            },
+            {
+              "kind": "field",
+              "name": "planet",
+              "type": {
+                "text": "string"
+              },
+              "default": "'World'",
+              "privacy": "public",
+              "attribute": "planet"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "greeting",
+              "fieldName": "greeting"
+            },
+            {
+              "name": "planet",
+              "fieldName": "planet"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "tagName": "full-component",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "FullComponent",
+          "declaration": {
+            "name": "FullComponent",
+            "module": "components/lit-examples/full-component.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "full-component",
+          "declaration": {
+            "name": "FullComponent",
+            "module": "components/lit-examples/full-component.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/lit-examples/simple-greeting.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "SimpleGreeting",
+          "members": [
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Default'",
+              "privacy": "public",
+              "attribute": "name"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "name",
+              "fieldName": "name"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "simple-greeting",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SimpleGreeting",
+          "declaration": {
+            "name": "SimpleGreeting",
+            "module": "components/lit-examples/simple-greeting.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "simple-greeting",
+          "declaration": {
+            "name": "SimpleGreeting",
+            "module": "components/lit-examples/simple-greeting.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "docs-src/_data/api.11tydata.js",
       "declarations": [],
       "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/lit-examples/utils/date-utils.js",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "isSameDate",
+          "parameters": [
+            {
+              "name": "date1"
+            },
+            {
+              "name": "date2"
+            }
+          ],
+          "description": "Returns true if the two dates represent the same\nyear, month, and day."
+        },
+        {
+          "kind": "function",
+          "name": "localDateFromUTC",
+          "parameters": [
+            {
+              "name": "utcDate"
+            }
+          ],
+          "description": "Returns a Date object that displays the correct year, month, and day\nin the local time zone, given a UTC Date object as returned by input type=\"date\"."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "isSameDate",
+          "declaration": {
+            "name": "isSameDate",
+            "module": "components/lit-examples/utils/date-utils.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "localDateFromUTC",
+          "declaration": {
+            "name": "localDateFromUTC",
+            "module": "components/lit-examples/utils/date-utils.js"
+          }
+        }
+      ]
     }
   ]
 }

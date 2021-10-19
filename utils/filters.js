@@ -197,6 +197,7 @@ export function doTheSortOrder(state, action) {
   }
   return {
     ...state,
+    sortedOn: action.data.sort,
     collection: [...theCollection],
     collectionDisplay: [...sortCollectionDisplay],
   };

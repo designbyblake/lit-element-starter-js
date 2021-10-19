@@ -123,6 +123,10 @@ class FilteredCheckboxes extends LitElement {
         ul li {
           flex: 0 1 50%;
         }
+
+        p {
+          font-size: 1.2rem;
+        }
         @media ${unsafeCSS(largeUp)} {
           ul li {
             flex: 0 1 33%;
@@ -150,22 +154,28 @@ class FilteredCheckboxes extends LitElement {
           <span aria-hidden="true"> ${chevronDown} </span>
         </button>
         <div class="toggle">
-          <fieldset .disabled=${!this.isOpen}>
+          <fieldset>
             <legend>${this.legend}</legend>
-            <ul>
-              ${this.theSelect.sort().map(
-                (key) => html`
-                  <li>
-                    <checkboxes-filter
-                      filterName=${key}
-                      keyname=${this.keyname}
-                      filterBy=${this.filterBy}
-                      .currentFiltered=${this.currentFiltered}
-                    ></checkboxes-filter>
-                  </li>
-                `
-              )}
-            </ul>
+            ${this.theSelect.length > 0
+              ? html`<ul>
+                  ${this.theSelect.sort().map(
+                    (key) => html`
+                      <li>
+                        <checkboxes-filter
+                          filterName=${key}
+                          keyname=${this.keyname}
+                          filterBy=${this.filterBy}
+                          .currentFiltered=${this.currentFiltered}
+                          .disabled=${!this.isOpen}
+                        ></checkboxes-filter>
+                      </li>
+                    `
+                  )}
+                </ul>`
+              : html` <p>
+                  There are currently no selectable options, try altering your
+                  current selections.
+                </p>`}
           </fieldset>
         </div>
       </div>

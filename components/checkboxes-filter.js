@@ -5,6 +5,11 @@ class CheckboxesFilter extends LitElement {
   static get properties() {
     return {
       /**
+       * Are the inputs focusable.
+       * @type {boolean}
+       */
+      disabled: {type: Boolean},
+      /**
        * Display name of filter.
        * @type {string}
        */
@@ -62,6 +67,7 @@ class CheckboxesFilter extends LitElement {
           <input
             type="checkbox"
             .checked=${this.currentFiltered.includes(this.filterName)}
+            .disabled=${this.disabled}
             name=${this.filterName}
             @click=${this._filterCheckbox}
           />

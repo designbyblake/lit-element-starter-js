@@ -135,6 +135,70 @@
   
         
         
+        <h2>&lt;active-filter></h2>
+        <div>
+          
+        </div>
+        
+    <h3>Attributes</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>filtered</td><td>List of active filters.</td><td>array</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>heading</td><td>The is the collection loading.</td><td>string</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>keyname</td><td>The is the collection loading.</td><td>string</td><td></td>
+        </tr>
+      
+    </table>
+  
+        
+    <h3>Properties</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Attribute</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>filtered</td><td>filtered</td><td>List of active filters.</td><td>array</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>heading</td><td>heading</td><td>The is the collection loading.</td><td>string</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>keyname</td><td>keyname</td><td>The is the collection loading.</td><td>string</td><td></td>
+        </tr>
+      
+    </table>
+    
+        
+        
+    <h3>Events</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Description</th>
+      </tr>
+      
+        <tr>
+          <td>filterCheckboxes</td><td></td>
+        </tr>
+      
+    </table>
+      
+          
+        
+        
+        
         <h2>&lt;album-cover></h2>
         <div>
           
@@ -155,7 +219,7 @@
         </tr>
       
         <tr>
-          <td>test</td><td>This is a test.</td><td>string</td><td></td>
+          <td>display</td><td>The display type text for the album cover.</td><td>string</td><td></td>
         </tr>
       
     </table>
@@ -168,15 +232,1208 @@
       </tr>
       
         <tr>
-          <td>test</td><td>test</td><td>This is a test.</td><td>string</td><td>'Frank'</td>
-        </tr>
-      
-        <tr>
           <td>src</td><td>src</td><td>The src to the album cover image.</td><td>string</td><td></td>
         </tr>
       
         <tr>
           <td>alt</td><td>alt</td><td>The alt text for the album cover.</td><td>string</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>display</td><td>display</td><td>The display type text for the album cover.</td><td>string</td><td></td>
+        </tr>
+      
+    </table>
+    
+        
+            
+          
+        
+        
+        
+        <h2>&lt;background-image></h2>
+        <div>
+          
+        </div>
+        
+    <h3>Attributes</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>bgImage</td><td></td><td></td><td></td>
+        </tr>
+      
+    </table>
+  
+        
+    <h3>Properties</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Attribute</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>bgImage</td><td>bgImage</td><td></td><td>string</td><td>'/assets/img/records-5723264_1920.jpeg'</td>
+        </tr>
+      
+    </table>
+    
+        
+            
+          
+        
+        
+        
+        <h2>&lt;checkboxes-filter></h2>
+        <div>
+          
+        </div>
+        
+    <h3>Attributes</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>disabled</td><td>Are the inputs focusable.</td><td>boolean</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>filterName</td><td>Display name of filter.</td><td>string</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>keyname</td><td>Name of key to filter on.</td><td>string</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>currentFiltered</td><td>Currently filtered.</td><td>array</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>filterBy</td><td>Name used for filtering function.</td><td>string</td><td></td>
+        </tr>
+      
+    </table>
+  
+        
+    <h3>Properties</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Attribute</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>disabled</td><td>disabled</td><td>Are the inputs focusable.</td><td>boolean</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>filterName</td><td>filterName</td><td>Display name of filter.</td><td>string</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>keyname</td><td>keyname</td><td>Name of key to filter on.</td><td>string</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>currentFiltered</td><td>currentFiltered</td><td>Currently filtered.</td><td>array</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>filterBy</td><td>filterBy</td><td>Name used for filtering function.</td><td>string</td><td></td>
+        </tr>
+      
+    </table>
+    
+        
+        
+    <h3>Events</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Description</th>
+      </tr>
+      
+        <tr>
+          <td>filterCheckboxes</td><td></td>
+        </tr>
+      
+    </table>
+      
+          
+        
+        
+        
+        <h2>&lt;collection-active-filters></h2>
+        <div>
+          
+        </div>
+        
+    <h3>Attributes</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>filteredArtists</td><td>List of all filtered artists.</td><td>object</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>filteredGenres</td><td>List of all filtered genres.</td><td>object</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>filteredStyles</td><td>List of all filtered styles.</td><td>object</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>filteredLabels</td><td>List of all filtered record labels.</td><td>object</td><td></td>
+        </tr>
+      
+    </table>
+  
+        
+    <h3>Properties</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Attribute</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>filteredArtists</td><td>filteredArtists</td><td>List of all filtered artists.</td><td>object</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>filteredGenres</td><td>filteredGenres</td><td>List of all filtered genres.</td><td>object</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>filteredStyles</td><td>filteredStyles</td><td>List of all filtered styles.</td><td>object</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>filteredLabels</td><td>filteredLabels</td><td>List of all filtered record labels.</td><td>object</td><td></td>
+        </tr>
+      
+    </table>
+    
+        
+            
+          
+        
+        
+        
+        <h2>&lt;collection-filters></h2>
+        <div>
+          
+        </div>
+        
+    <h3>Attributes</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>collectionTotal</td><td>Total number of items in the collection.</td><td>number</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>collectionDisplayLength</td><td>Total number of collection items showing after filtering</td><td>number</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>showFilters</td><td>Should we show the filters.</td><td>boolean</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>artists</td><td>List of all artists.</td><td>object</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>filteredArtists</td><td>List of all filtered artists.</td><td>object</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>genres</td><td>List of all genres.</td><td>object</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>filteredGenres</td><td>List of all filtered genres.</td><td>object</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>styles</td><td>List of all styles.</td><td>object</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>filteredStyles</td><td>List of all filtered styles.</td><td>object</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>labels</td><td>List of all record labels.</td><td>object</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>filteredLabels</td><td>List of all filtered record labels.</td><td>object</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>stillLoading</td><td>The is the collection loading.</td><td>boolean</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>textFilter</td><td>The is the collection loading.</td><td>string</td><td></td>
+        </tr>
+      
+    </table>
+  
+        
+    <h3>Properties</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Attribute</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>_close</td><td></td><td></td><td></td><td></td>
+        </tr>
+      
+        <tr>
+          <td>_keypress</td><td></td><td></td><td></td><td></td>
+        </tr>
+      
+        <tr>
+          <td>collectionTotal</td><td>collectionTotal</td><td>Total number of items in the collection.</td><td>number</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>collectionDisplayLength</td><td>collectionDisplayLength</td><td>Total number of collection items showing after filtering</td><td>number</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>showFilters</td><td>showFilters</td><td>Should we show the filters.</td><td>boolean</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>artists</td><td>artists</td><td>List of all artists.</td><td>object</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>filteredArtists</td><td>filteredArtists</td><td>List of all filtered artists.</td><td>object</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>genres</td><td>genres</td><td>List of all genres.</td><td>object</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>filteredGenres</td><td>filteredGenres</td><td>List of all filtered genres.</td><td>object</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>filteredStyles</td><td>filteredStyles</td><td>List of all filtered styles.</td><td>object</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>labels</td><td>labels</td><td>List of all record labels.</td><td>object</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>filteredLabels</td><td>filteredLabels</td><td>List of all filtered record labels.</td><td>object</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>stillLoading</td><td>stillLoading</td><td>The is the collection loading.</td><td>boolean</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>textFilter</td><td>textFilter</td><td>The is the collection loading.</td><td>string</td><td></td>
+        </tr>
+      
+    </table>
+    
+        
+            
+          
+        
+        
+        
+        <h2>&lt;collection-footer></h2>
+        <div>
+          
+        </div>
+        
+    <h3>Attributes</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>display</td><td>The display type, grid or list.</td><td>string</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>direction</td><td>The direction for sorting.</td><td>string</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>sortedOn</td><td>The current value of the sort select.</td><td>string</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>stillLoading</td><td>The is the collection loading.</td><td>boolean</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>textFilter</td><td>The is the collection loading.</td><td>string</td><td></td>
+        </tr>
+      
+    </table>
+  
+        
+    <h3>Properties</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Attribute</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>display</td><td>display</td><td>The display type, grid or list.</td><td>string</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>direction</td><td>direction</td><td>The direction for sorting.</td><td>string</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>sortedOn</td><td>sortedOn</td><td>The current value of the sort select.</td><td>string</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>stillLoading</td><td>stillLoading</td><td>The is the collection loading.</td><td>boolean</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>textFilter</td><td>textFilter</td><td>The is the collection loading.</td><td>string</td><td></td>
+        </tr>
+      
+    </table>
+    
+        
+            
+          
+        
+        
+        
+        <h2>&lt;collection-header></h2>
+        <div>
+          
+        </div>
+        
+    <h3>Attributes</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>collectionDisplayLength</td><td></td><td></td><td></td>
+        </tr>
+      
+        <tr>
+          <td>collectionLength</td><td></td><td></td><td></td>
+        </tr>
+      
+        <tr>
+          <td>collectionTotal</td><td></td><td></td><td></td>
+        </tr>
+      
+        <tr>
+          <td>stillLoading</td><td></td><td></td><td></td>
+        </tr>
+      
+        <tr>
+          <td>userName</td><td></td><td></td><td></td>
+        </tr>
+      
+    </table>
+  
+        
+    <h3>Properties</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Attribute</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>collectionDisplayLength</td><td>collectionDisplayLength</td><td></td><td></td><td></td>
+        </tr>
+      
+        <tr>
+          <td>collectionLength</td><td>collectionLength</td><td></td><td></td><td></td>
+        </tr>
+      
+        <tr>
+          <td>collectionTotal</td><td>collectionTotal</td><td></td><td></td><td></td>
+        </tr>
+      
+        <tr>
+          <td>stillLoading</td><td>stillLoading</td><td></td><td></td><td></td>
+        </tr>
+      
+        <tr>
+          <td>userName</td><td>userName</td><td></td><td></td><td></td>
+        </tr>
+      
+    </table>
+    
+        
+            
+          
+        
+        
+        
+        <h2>&lt;collection-sort></h2>
+        <div>
+          
+        </div>
+        
+    <h3>Attributes</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>display</td><td>The display type, grid or list.</td><td>string</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>direction</td><td>The direction for sorting.</td><td>string</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>sortedOn</td><td>The current value of the sort select.</td><td>string</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>stillLoading</td><td>The is the collection loading.</td><td>boolean</td><td></td>
+        </tr>
+      
+    </table>
+  
+        
+    <h3>Properties</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Attribute</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>display</td><td>display</td><td>The display type, grid or list.</td><td>string</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>direction</td><td>direction</td><td>The direction for sorting.</td><td>string</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>sortedOn</td><td>sortedOn</td><td>The current value of the sort select.</td><td>string</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>stillLoading</td><td>stillLoading</td><td>The is the collection loading.</td><td>boolean</td><td></td>
+        </tr>
+      
+    </table>
+    
+        
+        
+    <h3>Events</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Description</th>
+      </tr>
+      
+        <tr>
+          <td>triggerTrap</td><td></td>
+        </tr>
+      
+    </table>
+      
+          
+        
+        
+        
+        <h2>&lt;discogs-list></h2>
+        <div>
+          
+        </div>
+        
+    <h3>Attributes</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>collectionDisplay</td><td></td><td></td><td></td>
+        </tr>
+      
+        <tr>
+          <td>display</td><td></td><td></td><td></td>
+        </tr>
+      
+    </table>
+  
+        
+    <h3>Properties</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Attribute</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>collectionDisplay</td><td>collectionDisplay</td><td></td><td></td><td></td>
+        </tr>
+      
+        <tr>
+          <td>display</td><td>display</td><td></td><td></td><td></td>
+        </tr>
+      
+    </table>
+    
+        
+            
+          
+        
+        
+        
+        <h2>&lt;discogs-listing></h2>
+        <div>
+          
+        </div>
+        
+    <h3>Attributes</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>basicInformation</td><td></td><td></td><td></td>
+        </tr>
+      
+        <tr>
+          <td>display</td><td></td><td></td><td></td>
+        </tr>
+      
+    </table>
+  
+        
+    <h3>Properties</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Attribute</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>_getAlt</td><td></td><td></td><td></td><td></td>
+        </tr>
+      
+        <tr>
+          <td>basicInformation</td><td>basicInformation</td><td></td><td></td><td></td>
+        </tr>
+      
+        <tr>
+          <td>display</td><td>display</td><td></td><td></td><td></td>
+        </tr>
+      
+    </table>
+    
+        
+            
+          
+        
+        
+        
+        <h2>&lt;discogs-navigation></h2>
+        <div>
+          
+        </div>
+        
+          
+        
+            
+          
+        
+        
+        
+        <h2>&lt;discogs-user-form></h2>
+        <div>
+          
+        </div>
+        
+    <h3>Attributes</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>username</td><td></td><td></td><td></td>
+        </tr>
+      
+    </table>
+  
+        
+    <h3>Properties</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Attribute</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>input</td><td></td><td></td><td></td><td></td>
+        </tr>
+      
+        <tr>
+          <td>username</td><td>username</td><td></td><td>string</td><td>''</td>
+        </tr>
+      
+    </table>
+    
+        
+            
+          
+        
+        
+        
+        <h2>&lt;filtered-checkboxes></h2>
+        <div>
+          
+        </div>
+        
+    <h3>Attributes</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>legend</td><td>Total number of items in the collection.</td><td>string</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>keyname</td><td>Name of key to filter on.</td><td>string</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>filterBy</td><td>Name used for filtering function.</td><td>string</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>theSelect</td><td>Options to filter on.</td><td>object</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>currentFiltered</td><td>Currently filtered objects.</td><td>object</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>isOpen</td><td>Is the filter open or closed.</td><td>boolean</td><td></td>
+        </tr>
+      
+    </table>
+  
+        
+    <h3>Properties</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Attribute</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>_toggleFilter</td><td></td><td></td><td></td><td></td>
+        </tr>
+      
+        <tr>
+          <td>isOpen</td><td>isOpen</td><td>Is the filter open or closed.</td><td>boolean</td><td>false</td>
+        </tr>
+      
+        <tr>
+          <td>legend</td><td>legend</td><td>Total number of items in the collection.</td><td>string</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>keyname</td><td>keyname</td><td>Name of key to filter on.</td><td>string</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>filterBy</td><td>filterBy</td><td>Name used for filtering function.</td><td>string</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>theSelect</td><td>theSelect</td><td>Options to filter on.</td><td>object</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>currentFiltered</td><td>currentFiltered</td><td>Currently filtered objects.</td><td>object</td><td></td>
+        </tr>
+      
+    </table>
+    
+        
+            
+          
+        
+        
+        
+        <h2>&lt;focus-trap></h2>
+        <div>
+          
+        </div>
+        
+          
+        
+    <h3>Methods</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Parameters</th><th>Description</th><th>Return</th>
+      </tr>
+      
+        <tr>
+          <td>handleFocus</td><td>
+    
+    <table>
+      <tr>
+        <th>Name</th><th>Description</th><th>Type</th>
+      </tr>
+      
+        <tr>
+          <td>e</td><td></td><td></td>
+        </tr>
+      
+    </table>
+  </td><td></td><td></td>
+        </tr>
+      
+    </table>
+  
+            
+          
+        
+        
+        
+        <h2>&lt;router-component></h2>
+        <div>
+          
+        </div>
+        
+    <h3>Attributes</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>route</td><td></td><td></td><td></td>
+        </tr>
+      
+        <tr>
+          <td>page</td><td></td><td></td><td></td>
+        </tr>
+      
+        <tr>
+          <td>content</td><td></td><td></td><td></td>
+        </tr>
+      
+        <tr>
+          <td>ctx</td><td></td><td></td><td></td>
+        </tr>
+      
+    </table>
+  
+        
+    <h3>Properties</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Attribute</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>route</td><td>route</td><td></td><td></td><td></td>
+        </tr>
+      
+        <tr>
+          <td>page</td><td>page</td><td></td><td></td><td></td>
+        </tr>
+      
+        <tr>
+          <td>content</td><td>content</td><td></td><td></td><td></td>
+        </tr>
+      
+        <tr>
+          <td>ctx</td><td>ctx</td><td></td><td></td><td></td>
+        </tr>
+      
+    </table>
+    
+        
+            
+          
+        
+        
+        
+        <h2>&lt;text-filter></h2>
+        <div>
+          
+        </div>
+        
+    <h3>Attributes</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>stillLoading</td><td>The is the collection loading.</td><td>boolean</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>textFilter</td><td>The is the collection loading.</td><td>string</td><td></td>
+        </tr>
+      
+    </table>
+  
+        
+    <h3>Properties</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Attribute</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>filter</td><td></td><td></td><td></td><td></td>
+        </tr>
+      
+        <tr>
+          <td>stillLoading</td><td>stillLoading</td><td>The is the collection loading.</td><td>boolean</td><td></td>
+        </tr>
+      
+        <tr>
+          <td>textFilter</td><td>textFilter</td><td>The is the collection loading.</td><td>string</td><td></td>
+        </tr>
+      
+    </table>
+    
+        
+        
+    <h3>Events</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Description</th>
+      </tr>
+      
+        <tr>
+          <td>filterText</td><td></td>
+        </tr>
+      
+    </table>
+      
+          
+        
+        
+        
+        <h2>&lt;discogs-collection></h2>
+        <div>
+          
+        </div>
+        
+    <h3>Attributes</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>discogsUser</td><td></td><td></td><td></td>
+        </tr>
+      
+        <tr>
+          <td>state</td><td></td><td></td><td></td>
+        </tr>
+      
+    </table>
+  
+        
+    <h3>Properties</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Attribute</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>state</td><td>state</td><td></td><td></td><td>initialState</td>
+        </tr>
+      
+        <tr>
+          <td>discogsUser</td><td>discogsUser</td><td></td><td></td><td></td>
+        </tr>
+      
+    </table>
+    
+        
+            
+          
+        
+        
+        
+        <h2>&lt;discogs-user></h2>
+        <div>
+          
+        </div>
+        
+          
+        
+            
+          
+        
+        
+        
+        <h2>&lt;examples-page></h2>
+        <div>
+          
+        </div>
+        
+          
+        
+            
+          
+        
+        
+        
+        <h2>&lt;home-page></h2>
+        <div>
+          
+        </div>
+        
+          
+        
+            
+          
+        
+        
+        
+        <h2>&lt;basic-properties></h2>
+        <div>
+          
+        </div>
+        
+    <h3>Attributes</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>name</td><td></td><td></td><td></td>
+        </tr>
+      
+    </table>
+  
+        
+    <h3>Properties</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Attribute</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>name</td><td>name</td><td></td><td></td><td></td>
+        </tr>
+      
+    </table>
+    
+        
+            
+          
+        
+        
+        
+        <h2>&lt;date-display></h2>
+        <div>
+          
+        </div>
+        
+    <h3>Attributes</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>date</td><td></td><td></td><td></td>
+        </tr>
+      
+    </table>
+  
+        
+    <h3>Properties</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Attribute</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>datefield</td><td></td><td></td><td></td><td></td>
+        </tr>
+      
+        <tr>
+          <td>frames</td><td></td><td></td><td>array</td><td>[
+      {backgroundColor: '#f00'},
+      {backgroundColor: '#FF0'},
+      {backgroundColor: '#f0F'},
+
+  ]</td>
+        </tr>
+      
+        <tr>
+          <td>date</td><td>date</td><td></td><td></td><td></td>
+        </tr>
+      
+    </table>
+    
+        
+            
+          
+        
+        
+        
+        <h2>&lt;date-picker></h2>
+        <div>
+          
+        </div>
+        
+    <h3>Attributes</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>date</td><td></td><td></td><td></td>
+        </tr>
+      
+    </table>
+  
+        
+    <h3>Properties</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Attribute</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>date</td><td>date</td><td></td><td></td><td></td>
+        </tr>
+      
+    </table>
+    
+        
+            
+          
+        
+        
+        
+        <h2>&lt;full-component></h2>
+        <div>
+          
+        </div>
+        
+    <h3>Attributes</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>greeting</td><td></td><td></td><td></td>
+        </tr>
+      
+        <tr>
+          <td>planet</td><td></td><td></td><td></td>
+        </tr>
+      
+    </table>
+  
+        
+    <h3>Properties</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Attribute</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>greeting</td><td>greeting</td><td></td><td>string</td><td>'Hello'</td>
+        </tr>
+      
+        <tr>
+          <td>planet</td><td>planet</td><td></td><td>string</td><td>'World'</td>
+        </tr>
+      
+    </table>
+    
+        
+    <h3>Methods</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Parameters</th><th>Description</th><th>Return</th>
+      </tr>
+      
+        <tr>
+          <td>togglePlanet</td><td></td><td></td><td></td>
+        </tr>
+      
+    </table>
+  
+            
+          
+        
+        
+        
+        <h2>&lt;simple-greeting></h2>
+        <div>
+          
+        </div>
+        
+    <h3>Attributes</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>name</td><td></td><td></td><td></td>
+        </tr>
+      
+    </table>
+  
+        
+    <h3>Properties</h3>
+    <table>
+      <tr>
+        <th>Name</th><th>Attribute</th><th>Description</th><th>Type</th><th>Default</th>
+      </tr>
+      
+        <tr>
+          <td>name</td><td>name</td><td></td><td>string</td><td>'Default'</td>
         </tr>
       
     </table>

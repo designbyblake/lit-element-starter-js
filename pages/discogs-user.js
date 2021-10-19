@@ -1,4 +1,7 @@
-import {LitElement, html} from 'lit-element';
+import {
+  LitElement,
+  html,
+} from 'https://unpkg.com/lit-element@latest/lit-element.js?module';
 import '../components/background-image';
 import '../components/discogs-user-form';
 export class DiscogsUser extends LitElement {

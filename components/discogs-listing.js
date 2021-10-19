@@ -1,6 +1,8 @@
 import {LitElement, html, css, unsafeCSS} from 'lit-element';
 import {globalStyles} from './global-styles';
 import {tabletUp} from './media-queries';
+import {getAlbum} from '../utils/data';
+import {callDispatch} from '../utils/state';
 import './album-cover';
 
 class DiscogsListing extends LitElement {
@@ -126,10 +128,6 @@ class DiscogsListing extends LitElement {
     ];
   }
 
-  constructor() {
-    super();
-  }
-
   render() {
     const {
       artists,
@@ -157,7 +155,11 @@ class DiscogsListing extends LitElement {
         ></album-cover>
         <div class="info">
           <h2>
-            <button type="button" aria-label="${title} by ${artists[0].name}">
+            <button
+              @click=${this._getAlbum}
+              ="button"
+              aria-label="${title} by ${artists[0].name}"
+            >
               ${title}
             </button>
           </h2>
@@ -173,6 +175,23 @@ class DiscogsListing extends LitElement {
       alt += ` from ${this.basicInformation.artists[0].name}`;
     }
     return alt;
+  };
+
+  _getAlbum = () => {
+    const albumId = this.basicInformation.id;
+    getAlbum(albumId).then((album) => {
+      const action = {
+        data: {album},
+        type: 'GET_CURRENT_ALBUM',
+      };
+      callDispatch(this, action);
+    });
+
+    // if (currentAlbum.id !== parseInt(albumId)) {
+
+    // } else {
+    //   dispatch({type: 'getCurrentAlbum', album: currentAlbum});
+    // }
   };
 }
 window.customElements.define('discogs-listing', DiscogsListing);

@@ -392,6 +392,16 @@ export const globalStyles = css`
     }
   }
 
+  .album-section-title {
+    color: var(--color-upsdell-red);
+    font-size: 1.3125rem;
+    margin-bottom: 10px;
+  }
+  .album-section-title-large {
+    color: var(--color-upsdell-red);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
   @media (prefers-reduced-motion) {
     * {
       transition: none !important;

@@ -50,8 +50,12 @@ export class DiscogsUserForm extends LitElement {
     this.username = '';
   }
 
-  _usernameUpdate(e) {
-    this.username = e.target.value;
+  get input() {
+    return this.renderRoot?.querySelector('#usernames') ?? null;
+  }
+
+  _usernameUpdate() {
+    this.username = this.input.value;
   }
   render() {
     return html`

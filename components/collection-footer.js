@@ -17,6 +17,11 @@ class CollectionFooter extends LitElement {
        */
       direction: {type: String},
       /**
+       * The current value of the sort select.
+       * @type {string}
+       */
+      sortedOn: {type: String},
+      /**
        * The is the collection loading.
        * @type {boolean}
        */
@@ -87,6 +92,7 @@ class CollectionFooter extends LitElement {
           <collection-sort
             .direction=${this.direction}
             .display=${this.display}
+            .sortedOn=${this.sortedOn}
             .stillLoading=${this.stillLoading}
           ></collection-sort>
         </div>

@@ -34,11 +34,15 @@ class TextFilter extends LitElement {
       `,
     ];
   }
+  get filter() {
+    return this.renderRoot?.querySelector('.filter') ?? null;
+  }
   render() {
     return html`
       <label>
         <span> Type to narrow the collection </span>
         <input
+          class="filter"
           type="text"
           .value=${this.textFilter}
           @keyup=${this._filterText}
@@ -48,9 +52,9 @@ class TextFilter extends LitElement {
     `;
   }
 
-  _filterText(e) {
+  _filterText() {
     const options = {
-      detail: {text: e.target.value},
+      detail: {text: this.filter.value},
       bubbles: true,
       composed: true,
     };
